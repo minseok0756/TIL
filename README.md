@@ -5,5 +5,5 @@
 - [230607](./230607/TIL0607.md)
     - Markdown, CLI, Git, GitHub
 
-- [23/06/08](./230608/TIL0608.md)
+- [230608](./230608/TIL0608.md)
     - Git_profile, .gitignore, branch, Fork & pull request
