@@ -50,3 +50,8 @@ arr2 = arr1.astype(np.int32)
 arr3 = np.array(data).astype(np.int32) # 권장 표현
 print("8. str 값을 int 으로 변경 :",arr2) # [10 20 30]
 print(arr3) # [10 20 30]
+
+'''
+ndarray.dtype = np.타입 으로도 변경할 수 있음.
+2차원 배열생성에서 ndarray.shape = (n, m)과 같은 방법
+'''
