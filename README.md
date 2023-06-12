@@ -19,5 +19,5 @@
     - 이러닝 알고리즘 - 스택, 큐, 힙, 트리, 선택,삽입,퀵,계수정렬, DFS, BFS
 
 - [230612]()
-    - [numpy](./2306/230612/TIL0612_numpy.md) - 
-    - [pandas](./2306/230612/pandas/sample01_Dataframe_생성.py)
+    - [numpy](./2306/230612/TIL0612_numpy.md) - 2차원색인, 복사, 병합/분할, 유니버셜/유틸리티함수, 차원증가/감소
+    - [pandas](./2306/230612/pandas/sample01_Dataframe_생성.py) - Dataframe 생성
