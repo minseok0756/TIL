@@ -20,4 +20,4 @@
 
 - [230612]()
     - [numpy](./2306/230612/TIL0612_numpy.md) - 2차원색인, 복사, 병합/분할, 유니버셜/유틸리티함수, 차원증가/감소
-    - [pandas](./2306/230612/pandas/sample01_Dataframe_생성.py) - Dataframe 생성
+    - [pandas](./2306/230612/TIL0612_pandas.md) - Dataframe 생성
