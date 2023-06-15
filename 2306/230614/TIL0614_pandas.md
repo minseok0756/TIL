@@ -44,14 +44,19 @@
 >   | 행의 중복 여부| duplicated()||
 >   | 중복행 제거후 반환| drop_duplicates()||
 >   | 임의의 함수 적용| apply()||
->   | 멤버쉽연산자 기능| isin()||
+>   | 원소별 멤버쉽연산자 기능| isin()||
 >   | unique한 값의 갯수| nunique()||
+
+- DataFrame만 사용할 수 있는 함수
+>   | 기능| 함수|
+>   | -| -|
+>   | 색인기능| query('조건식')|
 
 - Series만 사용할 수 있는 함수
 >   | 기능| 함수||
 >   | -| -|-|
 >   | unique한 값 자체를 반환| unique()||
->   | 값의 빈도수 반환| value_counts()| count()와 비교|
+>   | 값의 빈도수 반환| value_counts()| index가 value값으로 바뀜 / count()와 비교|
 >   | 범위에 있으면 True| between()||
 
 - 문자열 함수 - Series.str.함수
@@ -60,4 +65,7 @@
 >   |문자열값 변경| replace()|
 >   |문자열값 인덱싱/슬라이싱| Series.str[::]|
 >   |문자열값 대/소문자로| upper()/ lower()|
->   |특정 문자 포함 여부| contains('a\|b')
+>   |특정 문자 포함 여부| contains('a\|b')|
+>   |특정 문자로 시작/끝 여부| startswith() / endswith()|
+>   |문자열이 모두 대/소문자인지 여부| isupper()/ islower()|
+>   |one-hot 인코딩 기능| get_dummies|
