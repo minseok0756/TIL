@@ -5,7 +5,7 @@
     - seaborn 라이브러리 - matplotlib이 복잡하여 만들어짐 -> 덜복잡함 + 많은 기능
     - pandas - 내장 라이브러리
 
-## [실습](./)
+## [실습](https://www.kaggle.com/minseok0756/code?userId=15542269&sortBy=dateRun&tab=profile)
 
 ## 리뷰
 
