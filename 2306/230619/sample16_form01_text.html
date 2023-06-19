@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>form 태그 실습</title>
+</head>
+<body>
+
+	이름2 <input type="text" name="username" id="username" 
+		autofocus required placeholder="이름 입력">
+		<!-- placeholder는 어떤 값을 입력할지 회색으로 가이드 -->
+		<!-- required는 필수로 입력해야함을 의미. 값이 없으면 submit불가-->
+		<!-- autofocus 칸을 마우스로 선택하지 않아도 자동으로 선택되어있음
+		바로 키보드로 입력할 수 있음 -->
+	<form action="target.html">
+		이름1 <input type="text" name="username"><br>
+		나이 <input type="text" name="age"><br>
+		<input type="submit" value="전송1">
+	</form>  
+	<form action="target.html" method="post">
+		이름1 <input type="text" name="username"><br>
+		나이 <input type="text" name="age"><br>
+		<input type="submit" value="전송2">
+	</form>  
+		
+</body>
+</html>

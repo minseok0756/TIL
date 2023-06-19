@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>form 태그 실습</title>
+</head>
+<body>
+  <!-- checkbox는 form태그안에 체크된 값만 전달된다.-->
+  <form name="myForm" action="target.html" method="get">
+    <input type="checkbox" name="fruits" value="apple" checked>사과<br>
+    <input type="checkbox" name="fruits" value="banana">바나나<br>
+    <!-- 여러 버튼 선택 가능 -->
+
+    <input type="submit" value="전송">
+    <button>전송2</button>
+    <!-- 서브밋 버튼 두가지 -->
+
+    <input type="button" value="전송3">
+    <!-- type="button"은 서브밋 안됨 -->
+    
+</form>    	
+</body>
+</html>

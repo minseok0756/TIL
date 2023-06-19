@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>form 태그 실습</title>
+</head>
+<body>
+  <!-- 파일 업로드 기능시 필수사항
+        1) method="post"
+        2) enctype="multipart/form-data" - 데이터가 인코딩되는 방법
+
+        http://jakarta.apache.org에서 참조가능
+      -->
+  <form name="myForm" action="target.html" method="post" 
+         enctype="multipart/form-data">
+	  파일선택1:<input type="file" name="theFile"><br>
+      파일선택2:<input type="file" name="file" id="theFile" multiple="multiple" accept="image/*" ><br>
+      <!-- multiple - 파일을 여러개 선택가능 -->
+      <!-- accept="image/*" 이미지 파일만 선택 가능 -->
+     <input type="submit" value="전송">
+     <input type="reset" value="취소">
+  </form>
+     	
+</body>
+</html>
