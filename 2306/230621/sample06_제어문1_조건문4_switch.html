@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+	// 조건문
+	// 4. switch문(다중 비교)
+    /* 변수와 값을 비교(==)하여 일치하면 문장이 실행, break에 의해 switch문을 빠져나옴
+    일치하지 않으면 다음 값2와비교.
+    모든 case와 일치하지 않으면 default 문장 실행 */
+
+    var n= 10;
+    
+    switch (n) {
+        case 5: console.log("5"); break;
+        case 10: console.log("10"); break;
+        case 15: console.log("15"); break;
+        default: console.log("default"); break;
+    }
+
+    switch (n) {
+        case 5: console.log("5");
+        case 10: console.log("10");
+        case 15: console.log("15");
+        default: console.log("default");
+    }
+    // break를 사용하지 않을 수 있다.(일반적이지 않음)
+    // 변수와 맞는 값을 찾은 이후(case 10)로는 값 비교없이 문장이 실행됨
+    console.log("end")
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

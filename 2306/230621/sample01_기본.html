@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // script 위치: head 내부
+        // 주석
+        // 대소문자 구별
+        // 순차적으로 실행
+        console.log("Javascript_head1");
+    </script>
+    <script>
+        // script 위치: head 내부
+        console.log("Javascript_head2");
+    </script>
+    <!-- 외부파일 접근(external방식)
+        script 위치: head 내부 -->
+    <script src="external.js"></script>
+    <!-- <script src="./external.js"></script> --> 
+    <!-- 현재 디렉토리를 명확히 지정 -->
+    <!-- <script src="/Javascript_source/external.js"></script> -->
+    <!-- 절대 경로 -->
+</head>
+<body>
+    <p>Hello1</p>
+    <script>
+        // script 위치: body내부
+        console.log("Javascript_body");
+    </script>
+    <p>Hello2</p>
+    <script>
+        // script 위치: body 마지막
+        console.log("Javascript_body_맨끝");
+    </script>
+</body>
+</html>

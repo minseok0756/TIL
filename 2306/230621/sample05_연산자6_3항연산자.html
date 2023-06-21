@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+	// 6) 3항연산자
+	// 변수 = (조건식)?참:거짓;
+
+	var x= (4>3)?100:200;
+	console.log(x); // 100
+
+	var x= (4>3)?"A":"B";
+	console.log(x); // A
+
+	var x= (4>3)?alert("A"):alert("B");
+	console.log(x); // 경고창메시지 A
+					// undefined -> alert함수가 반환값이 없기 때문에 x에 어떤값도 저장되지 않음
+
+	// 중첩 가능
+	var x= (4>3)?(true)?100:200:"B";
+	console.log(x); // 100
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

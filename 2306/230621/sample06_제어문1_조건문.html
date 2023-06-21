@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+	// 조건문
+	// 1. 단일 if문: 조건이 true인 경우 실행
+
+	console.log("start")
+
+	// 중괄호 표시는 옵션이다. 굳이 쓰지 않아도 된다. 가독성을 위해 권장
+	// 영향을 받는 문장이 여러개인 경우 반드시 블럭을 사용해야함
+	// 에러가 발생하는건 아니지만 제대로 그룹핑되지 않아 의도한대로 실행되지 않음
+	if(false){
+		console.log("run")
+		console.log("run2")
+	}
+
+	console.log("end")
+
+	// prompt 함수: 키보드 값을 입력 받기(python의 input)
+	let mesg= prompt("이름입력");
+	let age= prompt("나이입력");
+	// prompt - 문자로 반환
+	// Number.parseInt()(권장) 또는 parseInt() - 숫자로 변환
+	// 클래스없이 사용하는 함수 - window객체에 존재
+	console.log(mesg, age, age+10, Number.parseInt(age)+10, parseInt(age)+10) // ㅁㄴㅇㄹ 20 2010 30 30
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

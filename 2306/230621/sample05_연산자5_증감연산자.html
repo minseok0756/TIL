@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+	// 5) 증감연산자(python은 없음)
+
+		var n=10;
+		++n;
+		n++;
+		console.log("증가 연산자", n); // 12
+		
+		var n=10;
+		--n;
+		n--;
+		console.log("감소 연산자", n); // 8
+
+		// 주의: 다른 연산자와 함께 사용하는 경우
+		var n=10;
+		var x=++n; // 전치: 먼저 1증가하고 나중에 할당
+		console.log(n, x); // 11 11
+		
+		var n=10;
+		var x=n++; // 후치: 먼저 할당하고 나중에 1증가
+		console.log(n, x); // 11 10
+
+		var n=10;
+		var x=--n; // 전치: 먼저 1감소하고 나중에 할당
+		console.log(n, x); // 9 9
+		
+		var n=10;
+		var x=n--; // 후치: 먼저 할당하고 나중에 1감소
+		console.log(n, x); // 9 10
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

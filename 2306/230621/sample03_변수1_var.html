@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        
+        // var 이용한 변수
+        /*
+        변수 중복 선언 가능 
+        old버전     
+        함수 scope 따른다 - 함수 안에서 선언된 변수는 함수안에서만 사용 가능
+        */
+
+        var n; // 변수 선언
+        console.log(n); // undefined 출력
+        n=10; // 변수 초기화 -> 기본형 데이터를 저장 = 기본형변수
+        console.log(n); // 10 출력
+
+        var n=20; // 선언과 초기화를 한번에 가능
+                  // 변수 n 중복 선언 가능
+        console.log(n); // 20 출력
+
+        // 참조형
+        var n=[10, 20] // 참조형 데이터를 저장 = 참조형변수(주소값저장)
+        console.log(n); // [10, 20]
+
+        // var는 함수 스코프를 따른다
+        function fun(){
+            var x = 100;
+        }
+        // console.log(x); // 에러 발생 - x가 정의되지 않았음
+
+        if(true){
+            var x2 = 200;    
+        }
+        console.log(x2); // 정상 작동 - if는 함수블럭이 아니기 때문에 사용가능
+
+        // 해결: 함수 밖에서 선언 - 물론 함수 안에서도 사용 가능
+        var x = 100;
+        function fun2(){
+        }
+        console.log(x); // 정상 작동
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

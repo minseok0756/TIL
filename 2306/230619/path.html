@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/html_source/b/test.js"></script>
+    <!-- 절대경로는 port번호 뒤에서부터, port번호 5500 -->
+</head>
+<body>
+    <h2>절대경로</h2>
+    <!-- path.html경로 : http://127.0.0.1:5500/html_source/a/path.html -->
+    <!-- 001.png경로 : http://127.0.0.1:5500/html_source/b/001.png -->
+    <!-- test.js경로 : http://127.0.0.1:5500/html_source/b/test.js -->
+    <img src="/html_source/b/001.png" width="100" height="100">
+    <!-- 절대경로는 port번호 뒤에서부터, port번호 5500 -->
+
+    <h2>상대경로</h2>
+    <img src="../b/001.png" width="100" width="100">
+</body>
+</html>

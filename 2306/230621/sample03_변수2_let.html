@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        
+        // let 이용한 변수
+        /*
+        변수 중복선언 불가능(선언과 초기화를 혼동하지 말자. 초기화는 여러번가능)
+        es6버전     
+        블럭 scope 따른다 - 함수 및 모든 블럭 안에서 선언된 변수는 블럭안에서만 사용 가능
+        */
+
+        let n; // 변수 선언
+        console.log(n); // undefined 출력
+        n=10; // 변수 초기화
+        console.log(n); // 10 출력
+
+        // let n=20; // 변수 n 중복 선언 불가능
+        let n2=20 // 선언 초기화 한번에 가능
+        console.log(n2); // 20 출력
+
+        // 참조형
+        let n3=[10, 20];
+        console.log(n3); // [10, 20]
+
+        // let는 블럭 스코프를 따른다
+        function fun(){
+            let x = 100;
+        }
+        // console.log(x); // 에러 발생 - x가 정의되지 않았음
+
+        if(true){
+            let x2 = 200;    
+        }
+        // console.log(x2); // 에러 발생 - x가 정의되지 않았음
+
+        //해결: 밖에서 선언
+        let x = 100;
+        function fun2(){
+        }
+        console.log(x); // 정상 작동
+
+        let x2 = 200;
+        if(true){    
+        }
+        console.log(x2); // 정상 작동
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

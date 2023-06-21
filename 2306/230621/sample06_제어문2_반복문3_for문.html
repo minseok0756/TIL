@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+	// for문
+
+    // for(시작값; 조건식; 증감식;){
+    //     문장;
+    // }
+
+    var n= 1;
+    while(n<=5){
+        console.log("hello", n);
+        n++;
+    }
+
+    // 기본
+    for(var n= 1; n<= 5; n++){
+        console.log("world", n);
+    }
+
+    // 변형된 for문
+    for(var n= 10; n> 5; n--){
+        console.log("A", n);
+    }
+
+    for(var n= 1; n<= 10; n+=2){
+        console.log("B", n);
+    }
+
+    for(var n1=1, n2=1; n1<= 10&& n2< 3; n1+=2, n2++){
+        console.log("C", n1, n2);
+    }
+    // var n1=1, n2=1 문법적으로 에러는 없지만 권장하는 표현은 아님
+
+    // 모든 제어문은 중첩이 가능하다.
+    for(var n=1;n<=5;n++){
+        for (let m = 0; m < 2; m++){
+            console.log("D");
+        }
+    }
+
+    console.log("end");
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
