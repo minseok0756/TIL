@@ -45,3 +45,6 @@
 
 - 230621
     - [javascript](./2306/230621/TIL0621_javascript.md) - js사용, 데이터형, 변수, 연산자, 조건문, 반복문, 함수
+
+- 230622
+    - [javascript](./2306/230622/TIL0622_javascript.md) - 객체, 함수, 이벤트

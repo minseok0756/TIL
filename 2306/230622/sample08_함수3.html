@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+	
+    // 함수
+    // 1. 함수 호출시 인자 갯수가 달라도 된다.
+    // 2. default 파라미터 사용 가능
+    // 3. rest 파라미터(가변인자)
+    
+    // default 파라미터
+    function fun(n, n2){
+        console.log("fun", n, n2);
+    }
+
+    fun(); // 값이 없으면 에러는 안나지만 undefined가 저장됨
+    fun(10);
+    fun(10,20);
+    
+    function fun2(n=1, n2=2){
+        console.log("fun2", n, n2);
+    }
+
+    fun2();
+    fun2(10);
+    fun2(10,20);
+
+    // rest 파라미터(가변인자) - 내부적으로 배열로 관리
+    var fun3 = function(...n){
+        console.log("fun3", n);
+    };
+
+    fun3(10);
+    fun3(1,2,3);
+    fun3(1,2,3,5,7);
+
+    // 혼합
+    function fun4(n=1,n2=2, ...n3){ // default 파라미터,  rest 파라미터
+        console.log("fun4",n,n2, n3);
+    }
+
+    fun4(10);
+    fun4(1,2,3);
+    fun4(1,2,3,5,7);
+    </script>
+</head>
+<body>
+</body>
+</html>

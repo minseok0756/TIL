@@ -1,4 +1,9 @@
 ## JavaScript
+- 웹브라우저에서 실행       
+브라우저 마다 자바스크립트 엔진이 있음(chrome - V8)     
+google이 V8엔진을 이용해 자바스크립트를 비브라우저에서 실행 가능하도록 플랫폼 지원 -> nodejs
+
+- 표준화: ES6(2015)(ES: ECMAScript)
 
 ## [실습](./)
 
@@ -13,7 +18,7 @@
         - internal
     - body끝
 
-### 데이터형
+### ***데이터형***
 - 기본형 데이터 타입
     - 정수&실수 - number
     - 문자 - string
@@ -34,7 +39,7 @@
     var/let 변수명;
     2. 변수초기화       
     변수명=값;
-    3. 1+2(python 동일방식)     
+    3. 1+2(python 방식)     
     var/let 변수명=값;
 - var vs let
     - var   
@@ -135,17 +140,21 @@
 	}
     ```
 - switch문      
-```js
-switch(변수){
-    case 값1: 문장; break;
-    case 값2: 문장2; break;
-    ...
-    case 값n: 문장n; break;
-    default: 문장;
-}
-```
+- ```js
+  switch(변수){
+      case 값1: 문장; break;
+      case 값2: 문장2; break;
+      ...
+      case 값n: 문장n; break;
+      default: 문장;
+  }
+  ```
 
 ### 반복문
+1. 시작값(초기값)     
+2. 조건식       
+3. 증감식
+
 - while문
     - python
     ```python
@@ -165,13 +174,13 @@ switch(변수){
 - do~while문    
     - 조건이 false라도 적어도 한번은 문장을 실행한다
     - 끝에 세미콜론 필수
-    - ```js
-        시작값;
-        do{
-            문장;
-            증감연산자;
-        }while(조건식);
-      ```
+    ```js
+      시작값;
+      do{
+          문장;
+          증감연산자;
+      }while(조건식);
+    ```
 - for문
     - python    
     ```python
@@ -182,6 +191,20 @@ switch(변수){
     ```js
     for(시작값; 조건식; 증감식;){
         문장;
+    }
+    ```
+- for~of문 - 배열의 값이 변수에 저장
+    - js      
+    ```js
+    for(let 변수명 of 배열){
+         문장
+    }
+    ```
+- for~in문 - 배열의 index가 변수에 저장
+    - js  
+    ```js
+    for(let 변수명 in 배열){
+         문장
     }
     ```
 - break/continue문

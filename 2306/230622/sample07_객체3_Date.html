@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+	
+    // Data 관련 객체: 날짜 객체
+    // 1~12월을 배열로 관리 -> 1월은 인덱스0 12월은 인덱스11
+    // ########################### 배열로 관리하는거 좀 더 알아보기
+
+    // 1. 생성
+    let d= new Date();
+    console.log(d);
+    
+    // 2. 객체의 property와 method확인
+    // w3schools.com에서도 확인가능
+    console.dir(d);
+
+    // 3. property와 method사용
+    console.log(d.getFullYear());
+    console.log(d.getMonth()+1); // +1 하지 않으면 이번달이 아닌 저번달이 반환
+    console.log(d.getDate());
+
+    console.log(d.getHours());
+    console.log(d.getMinutes());
+    console.log(d.getSeconds());
+
+    // 특정 날짜 설정(변경) - 특정날짜를 가져와 바꿈 - 실습에서는 현재날짜를 바꾼것
+    let d2= new Date();
+
+    console.log(d2.setFullYear(2033));
+    console.log(d2.setMonth(1)); // 2월을 의미
+    console.log(d2.setDate(1));
+
+    console.log(d2);
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

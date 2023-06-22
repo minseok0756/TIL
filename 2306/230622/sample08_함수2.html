@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+	
+    // 함수
+    // 1. 함수 호출시 인자 갯수가 달라도 된다.
+
+    // 1. 함수 선언식 (이름 있는 함수)
+    function fun(){
+        console.log("fun");
+    }
+
+    fun(10,20); // 파라미터가 없는데 인자값을 넣어도 에러가 발생하지 않음
+
+    // 2. 함수 표현식 (이름 없는 함수) - 변수에 저장하여 함수를 사용
+    var fun2 = function(n, n2){
+        console.log("fun2");
+    };
+
+    fun2(); // 파라미터가 있는데 인자값이 없어도 에러가 발생하지 않음
+
+    </script>
+</head>
+<body>
+</body>
+</html>

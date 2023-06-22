@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+	
+    // Data 관련 객체: 문자열 객체
+
+    // 1. 생성
+    let s= "heLlo"; // 권장
+    let s2= new String("hello");
+
+    // 2. 객체의 property와 method확인
+    // w3schools.com에서도 확인가능
+    console.dir(s2); // new 방식으로 생성해야 보여줌
+
+    // 3. property와 method사용
+    console.log(s.length); // 문자열 길이 반환 - 배열에도 있음
+
+    console.log(s.charAt(0)); // index에 해당하는 문자를 반환
+    console.log(s.indexOf("h")); // 문자에 해당하는 index 반환 - 베열에도 있음
+    console.log(s.indexOf("x")); // 없는 문자인 경우 -1 반환
+                                 // 마우스오버하면 ?를 확인할 수 있는데 옵션(값을 지정하지 않아도 됨)을 의미
+
+    console.log(s.concat("!")); // 문자열 연결
+                           // concat에 마우스오버하면 괄호안에 ...을 확인할 수 있다.
+                           // rest 파라미터(가변인자, python에 packing 파라미터)
+    console.log(s.concat("!", "x", "yy")); // 여러 문자열 연결 가능
+
+    console.log(s.toLowerCase()); // 소문자로
+    console.log(s.toUpperCase()); // 대문자로
+
+    console.log(s.substring(0, 3)); // substring(start, end )
+                                    // 0부터 3-1까지 부분열
+    console.log(s.substr(0, 3)); // substr(start, length)
+                                 // 0부터 3개 부분열
+
+    console.log(s.replace("h", "H")); // replace(old, new)
+
+    let x= "     world     ";
+    console.log(x.trim()); // 공백제거
+    console.log(x.trim().toUpperCase()); // method chain가능
+
+    let x2= "AAA/BBB/CCC";
+    let x2_arr= x2.split("/"); // 구분자로 분리 - 배열의 join과 반대
+    console.log(x2_arr)
+    
+    console.log(x2.includes("A")) // 특정문자열이 있니?
+    console.log(x2.includes("AAA"))
+    console.log(x2.includes("AAA", 6)) // 6: 시작위치 지정
+
+    console.log(x2.startsWith("A")) // 특정문자열로 시작하니?
+    console.log(x2.startsWith("AA"))
+    console.log(x2.endsWith("C")) // 특정문자열로 끝나니?
+    console.log(x2.endsWith("CC"))
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

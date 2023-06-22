@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+	
+    // Data 관련 객체: Array 객체
+
+    let x =[4,5,6,1,2,3,9,7];
+
+    // 1. 거꾸로: 자신이 변경됨(inplace=True라는 의미)
+    console.log(x.reverse());
+    console.log(x);
+
+    // 2. 부분배열
+    console.log(x.slice(0,4)); // index4는 미포함
+
+    // 3. 특정값의 위치
+    console.log(x.indexOf(2));
+
+    // 4. 정렬 - 오름차순 기본
+    console.log(x.sort());
+
+    let x2 =[14,25,6,11,2,3,93,7];
+    console.log(x2.sort()); // 제대로 정렬되지 않음, 맨 앞자리만 비교해서 정렬됨
+    console.log(x2.sort(function(n,n2){
+        return n - n2; // 오름차순
+    }));
+
+    console.log(x2.sort(function(n,n2){
+        return n2 - n; // 내림차순
+    }));
+    //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+    //이유는 사이트에서 확인
+    //###############################################################
+
+    // 5. join 
+    const fruits = ["Banana", "Orange", "Apple", "Mango"];
+    let text = fruits.join(" and ");
+    console.log(text) // split의 반대, 하나의 문자열로 반환
+
+    // 6. length - 원소의 갯수
+    let x3= [1,2,3];
+    console.log(x3.length);
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

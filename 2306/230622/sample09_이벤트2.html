@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+	
+        function fun(){
+            console.log("fun");
+            console.log("이벤트 객체", event);
+            /*
+                - 두 가지만 알자
+                event.preventDefault(); -> 무조건 동작되는 기능(submit, a href 등)을 방지
+                event.stopPropagation(); -> 이벤트 전파 방지
+            */
+        }
+
+        function fun2(){
+            event.preventDefault(); // 전송을 눌러도 제출되지 않음
+        }
+    </script>
+</head>
+<body>
+    <button onclick="fun()">ok</button>
+    <form action="target.html" onsubmit="fun2()">
+		이름1 <input type="text" name="username" ><br>
+		나이 <input type="text" name="age" ><br>
+		<input type="submit" value="전송">
+	</form>
+</body>
+</html>

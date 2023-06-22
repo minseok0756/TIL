@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+	
+    // 함수
+
+    // 1. 함수 선언식 (이름 있는 함수)
+    function fun(){
+        console.log("fun");
+    }
+
+    // 2. 함수 표현식 (이름 없는 함수) - 변수에 저장하여 함수를 사용
+    var fun2 = function(){
+        console.log("fun2");
+    }; // 함수가 변수의 값으로 들어가서 세미콜론을 입력해야함
+
+    // 호출
+    fun();
+    fun2();
+
+    // 파라미터 있고 리턴값도 있는 함수
+    function fun3(n, n2){
+        console.log("fun3");
+        return n+n2;
+    }
+
+    var fun4 = function(n, n2){
+        console.log("fun4");
+        return n+n2;
+    };
+
+    var n = fun3(10,20);
+    var n2 = fun4(10,20);
+    
+    console.log(n, n2)
+    </script>
+</head>
+<body>
+</body>
+</html>

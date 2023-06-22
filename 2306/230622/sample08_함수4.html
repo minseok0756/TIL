@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+	
+    // 함수
+    // 1. 함수 호출시 인자 갯수가 달라도 된다.
+    // 2. default 파라미터 사용 가능
+    // 3. rest 파라미터(가변인자)
+    // 4. arrow 함수(python의 lambda와 비슷) - '=>'를 사용해서 arrow함수라고함
+    
+    // 일반함수
+    function fun(){
+        console.log("fun");
+    }
+    
+    fun();
+
+    // arrow 1
+    var fun = ()=>{
+        console.log("arrow fun");
+    };
+
+    fun();
+
+    // 일반함수2
+    function fun2(n){
+        console.log("fun2", n);
+    }
+    
+    fun2(10);
+
+    // arrow 2
+    var fun2 = n=>{
+        console.log("arrow2 fun2", n);
+    }
+        // 변수가 하나인 경우 괄호를 생략할 수 있다
+    fun2(10);
+
+
+    // 일반함수3
+    function fun3(n, n2){
+        console.log("fun3", n, n2);
+    }
+    
+    fun3(10,20);
+
+    // arrow 3
+    var fun3 = (n, n2)=>{
+        console.log("arrow3 fun3", n, n2);
+    };
+
+    fun3(10,20);
+
+    // 일반함수4
+    function fun4(n, n2){
+        console.log("fun4", n, n2);
+        return n+n2;
+    }
+    
+    var n4 = fun4(10,20);
+    console.log(n4)
+
+    // arrow 4
+    var fun4 = (n, n2)=>{
+        console.log("arrow4 fun4", n, n2);
+        return n+n2;
+    };
+
+    var n4 = fun4(10,20);
+    console.log(n4)
+
+    // 일반함수 5
+    function fun5(n, n2){
+        return n+n2;
+    }
+
+    var n5 = fun5(10,20);
+    console.log("fun5",n5);
+
+    // arrow 5
+    var fun5 = (n, n2)=>{
+        return n+n2;
+    }
+
+    var n5 = fun5(10,20);
+    console.log("arrow5 fun5",n5);
+
+    var fun5 = (n, n2)=>n+n2; // return값만 있으면 더 간단히 쓸 수 있다.
+
+    var n5 = fun5(10,20);
+    console.log("arrow5 fun5",n5);
+
+    </script>
+</head>
+<body>
+</body>
+</html>
