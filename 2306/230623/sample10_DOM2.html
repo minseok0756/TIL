@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <script>
+        
+        function kkk(){
+            var p = document.getElementById("x"); // p태그 객체가 저장
+                                                  // id값이 인자로 들어감
+            console.log(p);
+            console.dir(p);
+            console.log(p.innerHTML); // p태그안에 HTML까지 포함하여 반환
+                                      // <span>Hello</span>
+            console.log(p.innerText); // p태그안에 TEXT만 반환
+                                      // Hello
+
+            var p = document.getElementById("x").innerText; // method chain가능, 문자열이 저장
+            console.log(p); // Hello
+            
+            var x = document.querySelector("#x"); // #x : x의 id
+                                                  // 선택자가 인자로 들어감
+                                                  // p태그 객체가 저장
+            console.log(x, x.innerText); // 'Hello'
+
+            var x = document.querySelector(".y"); // .y : y의 class
+            console.log(x, x.innerText); // 'world'
+
+            var x = document.querySelectorAll("p"); // p태그 전체를 찾아줌, Nodelist로 반환(배열이라고 생각)
+            console.log(x, x[0], x[1], x[0].innerText, x[1].innerText); 
+            // NodeList(2)   <p id=​"x">​…​</p>​   <p class=​"y">​world​</p>   'Hello'   'world'
+            
+        }
+
+        function value_change(){
+            // var x= document.querySelector(".y");
+            // x.innerText = "홍길동";
+
+            // document.querySelector(".y").innerText="홍길동";
+            
+            document.querySelector(".y").innerHTML="<h1>홍길동</h1>";
+            // innerHTML은 태그까지 포함해서 변경할 수 있다
+
+        }
+   
+    </script>
+    
+
+</head>
+<body onload="kkk()">
+    <p id="x"><span>Hello</span></p>
+    <p class="y">world</p>
+    <button onclick="value_change()">값변경</button>
+
+</body>
+</html>

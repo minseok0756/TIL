@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <script>
+        
+        /*
+            문자열 작성
+            1. ""
+            2. ''
+            3. ``(back-tick)
+        */
+   
+        // 문자열 생성
+        var n = "hello1";
+        var n = 'hello2';
+
+        var n = `hello3`;
+        console.log(n, typeof n); // 문자열을 만들어줌
+
+
+        // 구조 유지
+        var n = "<table> \
+                   <tr> \
+                     <td>A</td> \
+                   </tr> \
+                 </table>";
+        console.log(n); // 한줄로 출력됨 - 구조가 제대로 출력되지 않음
+
+        var n = `<table>
+                   <tr>
+                     <td>A</td>
+                   </tr>
+                 </table>`;
+        console.log(n); // 구조가 유지되며 출력됨
+        
+        
+        // 변수 삽입
+        var x = "A";
+        var n = "<table> \
+                   <tr> \
+                     <td>"+x+"</td> \
+                   </tr> \
+                 </table>";
+        console.log(n); // 중간에 삽입하기 위해서 더하기로 연결
+
+        var n = `<table>
+                   <tr>
+                     <td>${x}</td>
+                   </tr>
+                 </table>`;
+        console.log(n); // ${변수}로 삽입하기 용이하다.
+
+
+    </script>
+    
+
+</head>
+<body>
+</body>
+</html>

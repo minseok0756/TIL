@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <script>
+        function chk(){
+            var x = document.querySelector("#same").checked;
+            if(x){
+                document.querySelector("#addr2").value = document.querySelector("#addr1").value;
+            }else{
+                document.querySelector("#addr2").value="";
+            }
+        }
+    </script>
+
+</head>
+<body>
+    회원주소:<input id="addr1" type="text" value="서울시 서초구"><br>
+    동일하면 체크하시오
+    <input id="same" type="checkbox" onclick="chk()">
+    <hr>
+    배송주소:<input id="addr2" type="text" value="">
+</body>
+</html>

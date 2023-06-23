@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <script>
+
+        var httpRequest;
+        function req(){
+          // 1. 객체 생성
+          httpRequest = new XMLHttpRequest();
+
+          console.dir(httpRequest);
+
+          // 2. 응답을 처리하는 함수를 이벤트 핸들러로(콜백형태) 등록
+          // XMLHttpRequest의 readyState 값이 변경되면 호출되는 이벤트
+          httpRequest.onreadystatechange= responseFun;
+
+          // 3. url 정보 및 추가 정보 설정(form태그의 action, a태그의 href 처럼)
+          httpRequest.open("get", "https://reqres.in/api/users/2");
+          // get 방식으로 url에 요청하겠다는 의미 - url에서 요청을 처리함
+
+          // 4. 요청을 보내기
+          httpRequest.send(null); // get방식일 때 null값 지정
+        }
+
+        function responseFun(){
+          // 요청한 결과가 성공한 경우에만 처리
+          if(httpRequest.readyState==4 && httpRequest.status==200 /*요청한 결과가 성공했음을 의미하는 조건식*/){
+            var data = httpRequest.responseText; // 서버에 요청하여 응답으로 받은 데이터를 문자열로 반환
+            console.log(data, typeof data); 
+
+            var jsonData= JSON.parse(data); // JSON문자열을 js객체(JSON객체)로 변환
+            console.log(jsonData, typeof jsonData);
+            
+            // JSON객체에서 key값을 이용하여 value값을 변수에 저장
+            var id = jsonData.data.id;
+            var email = jsonData.data.email;
+            var first_name = jsonData.data.first_name;
+            var last_name = jsonData.data.last_name;
+            var avatar = jsonData.data.avatar;
+            console.log(id, email, first_name, last_name, avatar);
+
+            var table = `<table>
+                             <tr>
+                               <th>id</th>
+                               <th>email</th>
+                               <th>first_name</th>
+                               <th>last_name</th>
+                               <th>avatar</th>
+                             </tr>
+                             <tr>
+                                <td>${id}/td> 
+                                <td>${email}</td> 
+                                <td>${first_name}</td> 
+                                <td>${last_name}</td> 
+                                <td><img src="${avatar}" width="100" height="100"></td>
+                              </tr>          
+                           </table>`;
+
+              document.querySelector("#result").innerHTML=table;
+
+              // ##########################################실행이 안됨 소스파일보고 다시
+          }
+        }
+    </script>
+</head>
+<body>
+  <button onclick="req()">reqres.in</button>
+  <div id="result"></div>
+</body>
+</html>

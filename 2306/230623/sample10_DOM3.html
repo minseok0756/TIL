@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <script>
+        
+        function total_sum(){
+            var v = document.querySelector("#pvalue").value;
+            // console.log(v, typeof v); // 문자열로 반환
+            
+            var q = document.querySelector("#quantity").value;
+            // console.log(q, typeof q); // 문자열로 반환
+
+            var sum = v*q;
+            // console.log(sum);
+
+            document.querySelector("#result").innerHTML = sum;
+        }
+   
+    </script>
+    
+
+</head>
+<body>
+    값:<input type="text" value="1000" id="pvalue"><br>
+    갯수:
+    <select onchange="total_sum()" id="quantity">
+     <option value="">선택하시오</option>
+     <option value="10">10</option>
+     <option value="20">20</option>
+     <option value="30">30</option>
+    </select>
+    <br>
+    총가격:<div id="result"></div>
+</body>
+</html>
