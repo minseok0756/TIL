@@ -48,3 +48,7 @@
 
 - 230622
     - [javascript](./2306/230622/TIL0622_javascript.md) - 객체, 함수, 이벤트
+
+- 230623
+    - [javascript](./2306/230623/TIL0623_javascript.md) - DOM, template리터럴, 객체분해할당, Ajax
+    - [python](./2306/230623/TIL0623_python.md)
