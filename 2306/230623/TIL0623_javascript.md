@@ -43,7 +43,7 @@ Ajax(Asynchronous javasrcipt and xml)
 
 ---
 
-## [실습](./)
+## [실습](./javascript/)
 
 ---
 

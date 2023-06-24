@@ -51,4 +51,4 @@
 
 - 230623
     - [javascript](./2306/230623/TIL0623_javascript.md) - DOM, template리터럴, 객체분해할당, Ajax
-    - [python](./2306/230623/TIL0623_python.md)
+    - [python](./2306/230623/TIL0623_python.md) - 정규표현식, oracledb연동
