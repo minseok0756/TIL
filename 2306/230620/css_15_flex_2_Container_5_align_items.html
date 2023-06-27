@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>flex 실습</title>
+<style type="text/css">
+    .x{
+      height: 500px;
+    }
+	.container{
+            background-color: powderblue;
+            
+            /* 
+              교차 축에 대해서 정렬을 설정하는 속성이다. 
+              기본값인 stretch는 Flex Item을 늘려서 Container를 채운다 
+            */
+
+            display:flex;
+            flex-direction: row; /* 주축은 row */
+            height: 500px;
+            /* align-items: flex-start;
+            align-items: flex-end;
+            align-items: center; */
+            align-items: stretch;
+    }
+	.item{
+		background-color: tomato;
+		color:white;
+		border:1px solid white;
+	}
+</style>
+</head>
+<body>
+    <div class="x">
+        <div class="container">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <div class="item">5</div>
+        </div>
+    </div>
+</body>
+</html>
+

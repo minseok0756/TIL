@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>flex 실습</title>
+<style type="text/css">
+	.container{
+            background-color: powderblue;
+            
+            display:flex;
+            flex-direction: column;
+
+    }
+	.item{
+		background-color: tomato;
+		color:white;
+        border: 1px solid black;
+        width: 250px;
+	}
+
+    /* align-items속성에 의해 설정된 기본정렬을 재정의.
+    독립적으로 적용하기 위해서 align-self 속성을 사용 */
+
+    .item:nth-child(2){
+        background-color: black;
+        align-self: flex-end; 
+    }
+    .item:nth-child(4){
+        background-color: blue;
+        align-self: center; 
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+    </div>
+</body>
+</html>
+

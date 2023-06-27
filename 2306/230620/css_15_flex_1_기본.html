@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>flex 실습</title>
+<style type="text/css">
+
+/* 
+    Flexbox 모듈을 적용하기 위해서는 기본적으로 부모/자식 관계를 설정해야 된다.
+    부모는 Flex Container 이고 그 안에 있는 모든 것이 자식인 Flex Item이 된다. (중첩가능)
+    Flex Container에서는 CSS로 display:flex 로 반드시 지정해야 된다. 
+*/
+
+
+	.container{
+            display:flex;
+            background-color: powderblue;
+            width: 200px;
+    }
+	.item{
+		background-color: tomato;
+		color:white;
+		border:1px solid white;
+	}
+</style>
+</head>
+<body>
+	<div class="container">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+    </div>
+</body>
+</html>
+

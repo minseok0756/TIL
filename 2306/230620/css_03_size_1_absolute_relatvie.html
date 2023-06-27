@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CSS 크기 단위 실습</title>
+<style type="text/css">
+
+   #_16px{
+    font-size: 16px;
+   }
+   #one{
+    font-size: 100%;
+   }
+    #two{
+    font-size: 200%;
+   }
+   #three1{
+    font-size: 1em;  /* 현재 요소의 상대적 크기, 현재는 16px */
+   }
+   #three2{
+    font-size: 1rem; /* root 요소의 상대적 크기, 현재는 16px  */
+   }
+   #four{
+    font-size: 2em;
+   }
+   #five{
+    font-size: 32px;
+   }
+
+</style>
+</head>
+<body>
+   <div>홍길동_default</div>
+   <div id="_16px">홍길동_16px</div>
+   <div id="one">홍길동_100%</div>
+	<div id="two">이순신_200%</div>
+	<div id="three1">유관순_1em</div>
+	<div id="three2">유관순_1rem</div>
+	<div id="four">강감찬_2em</div>
+	<div id="five">윤봉길_32</div>
+</body>
+</html>
+

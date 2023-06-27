@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Box 모델 실습</title>
+<style type="text/css">
+  div{
+      width:100px;
+      height: 100px;
+      background-color: red;
+      margin:10px;
+  }
+   #one{
+      border-top-width: 10px;
+      border-right-width: 10px;
+      border-bottom-width: 10px;
+      border-left-width: 10px;
+      
+      border-top-style: solid;
+      border-right-style: solid;
+      border-bottom-style: solid;
+      border-left-style: solid;
+      
+      border-color: black;
+   
+    }
+    #two{
+      border-width: 10px 20px; /* 상하 좌우 */
+      border-style: solid dotted;
+      border-color: black;
+    }
+    #three{
+      border-width: 10px;
+      border-style: solid;
+      border-color: black; 
+    }
+    #four{
+      border: 10px solid black; /* width style color -> 일반적임 */
+    }
+
+</style>
+</head>
+<body>
+  <div id="one"></div>
+  <div id="two"></div>
+  <div id="three"></div>
+  <div id="four"></div>
+</body>
+</html>
+

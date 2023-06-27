@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>position relative 실습</title>
+<style type="text/css">
+/* normal position 기준으로 부터 상대적인(relative) 위치가 결정된다.
+relative position은  top, bottom, left, right 속성과 같이 사용된다. */ 
+
+   div.relative {
+     position: relative;
+     top:30px;  
+     left:50px;
+     border: 3px solid #73AD21;
+   }
+</style>
+</head>
+<body>
+  <h2>position: relative;</h2>
+
+  <p>An element with position: static; is not positioned 
+     in any special way; it is 
+    always positioned according to the normal flow of the page:
+   </p>
+
+   <div class="relative">
+      This div element has position: static;
+   </div>
+</body>
+</html>
+

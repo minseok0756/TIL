@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>기존 Box 모델 실습</title>
+<style type="text/css">
+  #one {
+    width: 300px;
+    height: 100px;
+    border: 1px solid blue; 
+    box-sizing: content-box;
+   }
+
+  #two {
+    width: 300px;
+    height: 100px;
+    padding: 50px;
+    border: 1px solid red;
+    box-sizing: content-box;
+} 
+  /* padding으로인해 전체 width, height가 커짐 */
+</style>
+</head>
+<body>
+  <div id="one">hello</div>
+  <div id="two">hello</div>
+</body>
+</html>
+

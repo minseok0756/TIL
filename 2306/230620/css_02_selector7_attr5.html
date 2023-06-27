@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>속성 선택자 실습</title>
+<style type="text/css">
+  /* man을 포함하는 속성값 선택 */
+  div[class*='man']{
+    color:red;
+  }
+</style>
+</head>
+<body>
+    <div class="man-news">man-news</div>
+    <div class="milk man">milk man</div>
+    <div class="letterman2">letterman2</div>
+    <div class="newmilk">newmilk</div>
+    <div class="superman">superman</div>
+</body>
+</html>
+

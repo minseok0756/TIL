@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Box 모델 실습</title>
+<style type="text/css">
+  div{
+      width:100px;
+      height: 100px;
+      background-color: red;
+      margin:10px; 
+      border: 10px solid black;
+  }
+   #one{
+      padding-top:10px;
+      padding-right:10px;
+      padding-bottom:10px;
+      padding-left:10px;
+    }
+    #two{
+      padding:10px 10px 10px 10px;  /* 상 우 하 좌 */
+    }
+    #three{
+      padding:10px; /* 일반적임 */
+    }
+    #four{
+      padding:50px 20px;  /* 상하: 50px  좌우: 20 px*/
+    }
+    #five{
+      padding:50px 20px 30px;  /* 상: 50px  좌우: 20 px 하:30px */
+    }
+</style>
+</head>
+<body>
+  <div id="one">hello</div>
+  <div id="two">hello</div>
+  <div id="three">hello</div>
+  <div id="four">hello</div>
+  <div id="five">hello</div>
+</body>
+</html>
+

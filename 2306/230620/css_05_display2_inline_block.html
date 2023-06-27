@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>display 실습</title>
+<style type="text/css">
+
+.box1_div{
+	background: lime;
+	width:400px;
+	height:100px
+}
+.box2_div{
+	/* display:inline; */
+	background: yellow;
+	width:200px;
+	height:200px
+	/* inline일 경우 width,height는 적용 안됨. 에러가 발생하는 것은 아님 */
+}
+.box3_span{
+	background: aqua;
+	/* inline 스타일 span는 width와 height 적용안됨 */
+	width:400px;
+	height:100px
+}
+.box4_span{
+	
+	/* inline-block 스타일은 inline이지만 width와 height 적용 가능 */
+	/* box3도 inline이고 box4도 inline인데 왜 가로로 안붙는지 모르겠음
+	box5는 잘 붙었는데.. */
+	display: inline-block;
+	background: powderblue;
+	width:400px;
+	height:100px
+}
+.box5_span{
+	
+	/* inline-block 스타일은 inline이지만 width와 height 적용 가능 */
+	display: inline-block;
+	background: blue;
+	width:400px;
+	height:50px
+}
+</style>
+</head>
+<body>
+<div class="box1_div">BOX1_div</div>
+<div class="box2_div">BOX2_div</div>
+<span class="box3_span">BOX3_span</span><br>
+<span class="box4_span">BOX4_span</span>
+<span class="box5_span">BOX5_span</span>
+</body>
+</html>
+

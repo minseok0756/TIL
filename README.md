@@ -41,7 +41,7 @@
     - [html](./2306/230619/TIL0619_html.md) - title, base, link, style, script, header, hr, p, br, text format, a, table, list, semantic, span, form, image, 특수문자
 
 - 230620
-    - [css]()
+    - [css](./2306/230620/TIL0620_css.md) - 사용방식, 선택자, 의사코드, 속성
 
 - 230621
     - [javascript](./2306/230621/TIL0621_javascript.md) - js사용, 데이터형, 변수, 연산자, 조건문, 반복문, 함수

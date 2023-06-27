@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>pseudo 실습</title>
+<style>
+/*
+    의사코드(pseudo code) 
+    값 자체에 의미가 있음
+    사용 - 선택자:의사코드
+*/
+
+a:link {color:red;}    /* unvisited link */
+a:visited {color:green;} /* visited link */
+a:hover {color:yellow;}   /* mouse over link */
+a:active {color:blue;}  /* selected link */
+
+/* https://www.w3schools.com/cssref/css_selectors.php */
+
+/* focus는 마우스로 선택된것 */
+input:focus { 
+    background-color:lightblue
+    /* input 태그에서 마우스로 선택된것의 background-color를 lightblue로 변경 */
+}
+
+</style>
+</head>
+<body>
+<a href="#" target="_blank">This is a link</a><br>
+이름<input type="text" name="username"><br>
+나이<input type="text" name="userage"><br>
+주소<input type="text" name="useraddress"><br>
+</body>
+</html>
+

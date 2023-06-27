@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>flex 실습</title>
+<style type="text/css">
+	.container{
+            background-color: powderblue;
+            
+            display:flex;
+            flex-direction: row;
+
+    }
+	.item{
+		background-color: tomato;
+		color:white;
+        border: 1px solid black;
+	}
+
+    .item:nth-child(2){
+        /* 자신의 content 너비값으로 설정 (기본)  */
+        flex-basis: auto;
+    }
+    .item:nth-child(3){
+        /* width 값으로 설정  */
+        flex-basis: auto;
+        width: 150px;
+    }
+    .item:nth-child(4){
+        /* 명시된 flex-basis 값으로 설정  */
+        flex-basis: 250px;
+        width: 150px;
+        /* width와 함께 사용시 basis가 적용 */
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+    </div>
+</body>
+</html>
+

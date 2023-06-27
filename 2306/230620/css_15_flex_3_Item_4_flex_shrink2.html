@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>flex 실습</title>
+<style type="text/css">
+	.container{
+            background-color: powderblue;
+            
+            display:flex;
+            flex-direction: row;
+
+    }
+	.item{
+		background-color: tomato;
+		color:white;
+        border: 1px solid black;
+        width: 250px;
+        flex-shrink: 1;
+	}
+
+    .item:nth-child(2){
+        background-color: black;
+        flex-shrink: 0;  /* 숫자가 클수록 더 크게 줄어든다. 0이면 줄어들지 않는다.*/
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+    </div>
+</body>
+</html>
+

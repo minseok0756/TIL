@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>속성 선택자 실습</title>
+<style type="text/css">
+  /* net으로 끝나는 속성값 선택 */
+  a[href$='net']{
+    color:red;
+  }
+</style>
+</head>
+<body>
+	<a href="http://naver.com">one</a><br/>
+	<a href="https://naver.com" target="_blank">two</a><br/>
+    <a href="https://daum.net">three</a><br/>
+    <a href="http://daum.net" target="_blank">four</a><br/>
+    <a href="https://korea.com">five</a><br/>
+    <a href="http://korea.com" target="_blank">six</a><br>
+</body>
+</html>
+

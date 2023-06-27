@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>기존 Box 모델 실습</title>
+<style type="text/css">
+  #one {
+    width: 300px;
+    height: 100px;
+    border: 1px solid blue; 
+    box-sizing: border-box;
+    
+   }
+  
+  #two {
+    width: 300px;
+    height: 100px;
+    padding: 50px;
+    border: 1px solid red;
+    box-sizing: border-box;
+    
+} 
+ /* border-box : 전체 width, height를 유지 */
+</style>
+</head>
+<body>
+<pre>
+여러개의 블럭박스에  box-sizing: border-box; 지정하고
+width와 height속성을 같게 주면 padding이나 border값이 달라도
+결과적으로 박스크기는 같아진다.
+box-sizing시 border-box로 지정하면 width와 height로 설정된 값에 padding,border,margin값이
+포함되어 만들어지기 때문이다.
+</pre>
+  <div id="one">hello</div>
+  <div id="two">hello</div>
+</body>
+</html>
+

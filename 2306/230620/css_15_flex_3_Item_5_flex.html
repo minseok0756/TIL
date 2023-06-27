@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>flex 실습</title>
+<style type="text/css">
+	.container{
+            background-color: powderblue;
+            
+            display:flex;
+            flex-direction: row;
+
+    }
+	.item{
+		background-color: tomato;
+		color:white;
+        border: 1px solid black;
+        width: 250px;
+	}
+
+    .item:nth-child(2){
+        background-color: black;
+        flex: 0 0 200px;  /* grow shrink basis */
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+    </div>
+</body>
+</html>
+

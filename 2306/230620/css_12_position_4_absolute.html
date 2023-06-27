@@ -1,0 +1,48 @@
+<!-- 
+  가장 가까운 부모 요소 기준으로 하는 상대적인(relative) 위치가 결정된다.
+만약 부모 요소가 없거나 부모요소에 position 설정값(static제외)을 설정하지 않으면
+body 요소를 기준으로 설정된다. 따라서 scroll하면 움직이게 된다.
+
+부모 요소안에 자식요소를 absolute 속성을
+이용하여 위치시키는 기본 방법이다.
+가. 부모요소에 height 속성을 설정한다
+나. 부모요소에 relative position을 설정한다.
+다. 자식요소에 absolute position을 설정한다
+ -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>position absolute 실습</title>
+<style type="text/css">
+  div.relative {
+    position: relative;
+    width: 400px;
+    height: 200px;
+    border: 3px solid #73AD21; 
+  } 
+
+  div.absolute {
+    position: absolute;
+    top: 80px;
+    right: 0;
+    width: 200px;
+    height: 100px;
+    border: 3px solid #73AD21;
+  } 
+</style>
+</head>
+<body>
+  <h2>position: absolute;</h2>
+
+  <p>An element with position: absolute; is positioned relative 
+   to the nearest positioned ancestor (instead of positioned relative 
+   to the viewport, like fixed):</p>
+
+  <div class="relative">This div element has position: relative;
+    <div class="absolute">This div element has position: absolute;</div>
+  </div>
+</body>
+</html>
+

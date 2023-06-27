@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>flex 실습</title>
+<style type="text/css">
+	.container{
+            background-color: powderblue;
+            display:flex;
+            flex-direction: row;
+            /*  
+              no-wrap인 경우에는 브라우저 크기를 줄이면 플렉스 항목들의
+              크기가 자동으로 축소된다.
+              wrap ( wrap-reverse) 으로 지정하면 여러 줄에 걸쳐서 보여진다.
+
+             */
+            /* flex-wrap: nowrap; */
+            /* flex-wrap: wrap; */
+            flex-wrap: wrap-reverse;
+    }
+	.item{
+		background-color: tomato;
+		color:white;
+        border: 1px solid black;
+
+        /* 부모인 container는 width를 모두 사용 */
+		width: 300px;
+
+	}
+</style>
+</head>
+<body>
+	<div class="container">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+    </div>
+</body>
+</html>
+

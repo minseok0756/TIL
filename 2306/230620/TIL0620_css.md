@@ -229,14 +229,25 @@ web-ui site
     flex-end - 아래쪽 정렬       
     center - 가운데 정렬        
     stretch - 컨테이너 위,아래에 닿게 늘림
+    - aligh-self - align-items속성에 의해 설정된 기본정렬을 재정의
+    flex-start - 위쪽 정렬      
+    flex-end - 아래쪽 정렬       
+    center - 가운데 정렬        
+    stretch - 컨테이너 위,아래에 닿게 늘림
+    - flex-basis:크기 - item의 초기길이 지정
+    - flex-grow:값 - container에 여분의 공간이 있는 경우 일정 비율에 따라 확대
+    - flex-shrink:값 - container에 공간이 부족한 경우 일정 비율에 따라 축소
+        - 값이 클수록 더 많이 축소, 0이면 축소 안됨
+    - flex: grow shrink basis (한번에 지정)
+    - Media Query - 다양한 미디어 유형에 대해 다양한 스타일 규칙을 적용     
+    반응형 앱 - view port에 따라서 위젯(태그)의 위치/크기를 자동으로 변경가능한 앱
+    ```css
+    @media 미디어타입 and ( 표현식 ) {
+        CSS 코드;
+    }
+    ```
+    
 
-
-
-
-
-반응형 웹
-- view port에 따라서 위젯(태그)의 위치/크기를 자동으로 변경가능한 웹
-- flex로 쉽게 구현할 수 있다.
 
 
 flex grid는 알아서 해봐라(구글링)

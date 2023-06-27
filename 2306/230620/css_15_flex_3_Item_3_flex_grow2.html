@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>flex 실습</title>
+<style type="text/css">
+	.container{
+            background-color: powderblue;
+            
+            display:flex;
+            flex-direction: row;
+
+    }
+	.item{
+		background-color: tomato;
+		color:white;
+        border: 1px solid black;
+        flex-grow: 1;
+	}
+
+    .item:nth-child(3){
+        /* 다른 항목보다 약 3배정도 빠르게 성장한다.  */
+        flex-grow: 3;
+    }
+
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+    </div>
+</body>
+</html>
+
