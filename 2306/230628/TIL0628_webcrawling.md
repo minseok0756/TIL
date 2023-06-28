@@ -35,4 +35,4 @@ lxml
 RSS - 블로그 또는 뉴스 사이트 등의 웹사이트는 변경 정보 등을 RSS라는 이름의 XML 형식으로 제공
 - 주기적으로 자료를 받음
 
-[실습](http://localhost:8888/tree/webcrawling_0628)
+[실습](http://localhost:8888/tree/webcrawling_0628) - jupyter notebook으로 연결
