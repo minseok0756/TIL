@@ -60,3 +60,6 @@
 
 - 230627
     - [web crawling](./2306/230627/TIL0627_webcrawling.md) - 웹크롤링, 스크래이핑, 절차, 주의사항
+
+- 230628
+    - [web crawling](./2306/230628/TIL0628_webcrawling.md) - urllib,Requests,lxml.html 라이브러리, RSS
