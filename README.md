@@ -63,3 +63,6 @@
 
 - 230628
     - [web crawling](./2306/230628/TIL0628_webcrawling.md) - urllib,Requests,lxml.html 라이브러리, RSS
+
+- 230629
+    - [web crawling](./2306/230629/TIL0629_webcrawling.md) - BeautifulSoup

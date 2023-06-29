@@ -23,16 +23,25 @@ Requests
 
 
 lxml
-- root = fromstring(html로 된 문자열) - html형태의 문자열을 html로 파싱
-    - response는 html형태인데 컴퓨터는 string으로 인식해서 html(또는 xml)로 '파싱'해야함
-    - lxml.html.HtmlElement객체(fromstring의 리턴타입임)의 메서드
-        - a = root.xpath() - XPath는 XML문장 속의 요소, 속성 등을 지정하기 위한 언어이다. HTML도 XML의 일종으로 간주 될 수 있으므로, XPath를 사용하여 HTML문장의 요소를 지정하는 것도 가능하다.
-            - a = root.cssselect('선택자') - css 선택자를 이용하여 요소 지정
-        - a.get("속성명") - 속성값 반환
-        - a.text_content() - a요소의 텍스트(몸체) 반환
+- lxml.xml
+- lxml.html
+    - root = fromstring(html로 된 문자열) - html형태의 문자열을 html로 변환
+        - response는 html형태의 string이므로 html(또는 xml)로 변환해야함
+        - lxml.html.HtmlElement객체(fromstring의 리턴타입임)의 메서드
+            - a = root.xpath() - XPath는 XML문장 속의 요소, 속성 등을 지정하기 위한 언어이다. HTML도 XML의 일종으로 간주 될 수 있으므로, XPath를 사용하여 HTML문장의 요소를 지정하는 것도 가능하다.
+                - a = root.cssselect('선택자') - css 선택자를 이용하여 요소 지정
+            - a.get("속성명") - 속성값 반환
+            - a.text_content() - a요소의 텍스트(몸체) 반환
 
 
 RSS - 블로그 또는 뉴스 사이트 등의 웹사이트는 변경 정보 등을 RSS라는 이름의 XML 형식으로 제공
 - 주기적으로 자료를 받음
 
+저장
+- csv
+    - str.join()
+    - csv.writer()
+- JSON
+    - json 모듈
+    - 
 [실습](http://localhost:8888/tree/webcrawling_0628) - jupyter notebook으로 연결
