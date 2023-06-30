@@ -66,3 +66,6 @@
 
 - 230629
     - [web crawling](./2306/230629/TIL0629_webcrawling.md) - BeautifulSoup
+
+- 230630
+    - [web crawling](./2306/230630/TIL0630_webcrawling.md) - Selenium
