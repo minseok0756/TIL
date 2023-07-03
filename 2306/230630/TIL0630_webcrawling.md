@@ -10,7 +10,7 @@
             - 'lxml' - xml or html로 파싱
             - 'html.parser' - html로 파싱
     - findAll() = find_all()
-    - .txet = .get_text() / ['속셩명'] = .get('속성명')
+    - .text = .get_text() / ['속셩명'] = .get('속성명')
     - pd.DataFrame()
     - df.to_csv()
 - 출력
