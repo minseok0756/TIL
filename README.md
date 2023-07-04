@@ -72,3 +72,6 @@
 
 - 230703
     - [web crawling](./2307/230703/TIL0703_webcrawling.md) - Project
+
+- 230704
+    - [linux](./2307/230704/TIL0704_linux.md) - linux, kernel, distribution, command
