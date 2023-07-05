@@ -75,3 +75,6 @@
 
 - 230704
     - [linux](./2307/230704/TIL0704_linux.md) - linux, kernel, distribution, command
+
+- 230705
+    - [Django](./2307/230705/TIL0705_Django.md) - 웹 프로그래밍, Django MVT, project 뼈대 만들기
