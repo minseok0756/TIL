@@ -101,3 +101,4 @@ Django 웹 프레임워크
             - TIME_ZONE = 'Asia/Seoul'
 4. python manage.py migrate - 데이터베이스에 기본 테이블을 생성
 5. python manage.py runserver - 현재까지 작업을 개발용 웹 서버로 확인
+    - ctrl + c 로 종료
