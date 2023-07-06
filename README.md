@@ -78,3 +78,6 @@
 
 - 230705
     - [Django](./2307/230705/TIL0705_Django.md) - 웹 프로그래밍, Django MVT, project 뼈대 만들기
+
+- 230705
+    - [Django](./2307/230706/TIL0706_Django.md) - project 뼈대 만들기, model,urlconf,view,template 코딩

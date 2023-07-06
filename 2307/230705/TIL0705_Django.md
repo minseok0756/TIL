@@ -79,10 +79,11 @@ Django 웹 프레임워크
         - 데이터도출 - 타입, 길이
         - 제약조건
 3. URLconf 코딩하기 - URL 및 뷰 매핑 관계를 정의(urls.py)
-    - project에 있는 urls.py
+    - project mysite에 있는 urls.py
     - application에 있는 urls.py
 4. 템플릿 코딩하기 - 화면 UI 개발(index.html(초기화면), template/*.html)
 5. 뷰 코딩하기 - 애플리케이션 로직 개발(views.py)
+
 
 프로젝트 뼈대 만들기
 1. (base) C:\MyTest>django-admin startproject mysite - mysite라는 프로젝트 생성
@@ -92,13 +93,17 @@ Django 웹 프레임워크
     - 메모장이 켜지면 세팅 변경
         - ALLOWED_HOSTS 항목을 적절하게 지정
             - ALLOWED_HOSTS = ['192.168.35.61', 'localhost', '127.0.0.1’]
+                - localhost = 127.0.0.1 = 내컴퓨터
         - 애플리케이션들은 모두 설정 파일에 등록(polls 애플리케이션도 등록)
             - INSTALLED_APPS =[ ~, 'polls.apps.PollsConfig’, ]
+            - polls.apps.PollsConfig - polls에서 app.py에서 PollsConfig 사용
         - 프로젝트에 사용할 데이터베이스 엔진
             - 장고는 디폴트로 SQLite3 데이터베이스 엔진을 사용하도록 설정
         - 타임존 지정(기본은 세계표준시(UTC)로 되어 있음. 한국시간으로 변경)
             - #TIME_ZONE = 'UTC'
             - TIME_ZONE = 'Asia/Seoul'
-4. python manage.py migrate - 데이터베이스에 기본 테이블을 생성
-5. python manage.py runserver - 현재까지 작업을 개발용 웹 서버로 확인
+3. (base) C:\MyTest\projectsite>python manage.py migrate - 데이터베이스에 기본 테이블을 생성
+3. (base) C:\MyTest\projectsite>python manage.py runserver - 현재까지 작업을 개발용 웹 서버로 확인      
+(base) C:\MyTest\projectsite>python manage.py runserver 127.0.0.1:8000     
+(base) C:\MyTest\projectsite>python manage.py runserver 0:8000
     - ctrl + c 로 종료
