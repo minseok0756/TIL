@@ -1,0 +1,23 @@
+필드 타입
+Primary Key : AutoField, BigAutoField(pk 수동 지정)
+문자열 : CharField, TextField, SlugField
+날짜/시간 : DateField, TimeField, DateTimeField, DurationField
+참/거짓 : BooleanField, NullBooleanField
+숫자 : IntegerField, SmallIntegerField, PostiveIntegerField, PostiveSmallIntegerField, BigIntegerField, DecimalField, FloatField
+*파일 : BinaryField, FileField, ImageField, FilePathField
+이메일 : EmailField
+URL : URLField
+UUID : UUIDField
+아이피 : GenericIPAddressField
+Relationship Types (ForeignKey, ManyToManyField, OneToOneField)
+
+필드 옵션
+blank : validation시에 empty 허용 (기본값 : False)
+null : null 허용 여부 (False)
+db_index : 인덱스 필드 여부 (False)
+default : 디폴드 값 지정, 혹은 리턴해줄 함수 지정
+unique : 현재 테이블 내 유일성 여부 (False)
+choices : select 박스 사용시 사용
+validators : validators를 수행할 함수를 다수 지정
+verbose_name : 필드 레이블, 미지정시 필드명 사용
+help_text : 필드 입력 도움말 기능

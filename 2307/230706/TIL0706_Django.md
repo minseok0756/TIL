@@ -28,8 +28,7 @@ Model 코딩
 - notepad admins.py - 정의된 테이블이 Admin 화면에 보이게 등록하기 위해 메모장으로 admins.py 열기
 
 - python manage.py makemigrations - 데이터베이스에 변경이 필요한 사항을 추출함
-    - makemigrations 명령에 의해 polls/migrations 디렉토리 하위에 마이그
-레이션 파일들이 생김(0001_initial,py)
+    - makemigrations 명령에 의해 polls/migrations 디렉토리 하위에 마이그레이션 파일들이 생김(0001_initial,py)
 
 - python manage.py migrate - 데이터베이스에 변경사항을 반영함
 - python manage.py runserver - 현재까지 작업을 개발용 웹 서버로 확인함
@@ -83,6 +82,9 @@ View 및 Template
         - get_object_or_404(Question, pk=question_id)
             - Question객체 중 pk값이 question_id인 것이 있으면 가져오고 그렇지 않으면 404 에러를 발생시켜라
         - 에러가 발생한 경우 render로 'error_message'가 넘어간다.
+    - request.POST[]
+        - request는 http 요청을 이용하기 쉽도록 django가 잘 다듬어 만들어 준 객체이다.
+        ##################################################
 
 - Template
     - template 폴더가 없어 만들어서 코딩해야함
@@ -109,8 +111,78 @@ View 및 Template
                 - app_name = 'polls'
             - app_name을 추가하여 url 별칭 사용
                 - ```<a href="{% url 'polls:detail' question.id %}">```
+    - Model간 접근 - Question model을 Choice model이 참조
+        - Choice객체 -> Question객체
+            - c = Choice.objects.get(pk=1)
+            - c.question - question은 fk로 지정된 Choice model의 ***필드명***(필드명으로 접근함)
+                - Choice모델에서 pk=1에 해당하는 레코드의 fk값과 연결된 Question모델의 레코드를 불러옴
+            - c.question.question_text - 레코드에서 question_text 필드값을 불러옴
+        - Choice객체 -> Question객체
+            - q = Question.objects.get(pk=1)
+            - q.choice_set.all() - .(소문자)모델명_set으로 Question model에 접근함
+                - .all() - 모든 데이터 반환
+                - .get()
+    - for문에서 index 사용(enumerate의 index 느낌)
+        - forloop.counter - The current iteration of the loop(1-indexed)
+        - forloop.counter() - The current iteration of the loop(0-indexed)
+        - forloop.revcounter - The number of iterations from the end of the loop(1-indexed)
+        - forloop.revcounter() - The number of iterations from the end of the loop(0-indexed)
+        - forloop.first - True if this is the first time through the loop
+        - forloop.last - True if this is the last time through the loop
+    - x|pluralize - x가 1이 아니면 x끝에 's'를 붙여서 출력
 
     - #################### detail.html 부터 다시
 
 
 두 프롬프트가 같은 서버를 올리면 웹 브라우저가 제대로 request하지 못한다
+
+
+
+
+
+웹 페이지가 요청 받았을 때 장고는 HttpRequest object를 만든다
+장고는 적절한 view를 로드하고 HttpRequest를 첫번째 인자로 패스한다
+view는 HttpResponse를 리턴해야한다.
+
+HttpRequest.GET - 주어진 모든 HTTP GET 파라미터를 모함하는 dict같은 object
+HttpRequest.POST - 주어진 모든 HTTP POST 파라미터를 모함하는 dict같은 object
+
+QueryDict objects - HttpRequest object의 GET/POST 속성(HttpRequest.GET/POST)은 django.http.QueryDict의 인스턴스이다. 같은 key에 여러 values를 갖는 데이터를 다루기 위해 커스터마이즈됨
+- request.POST/GET은 immutable하다. QueryDict(..., mutable=True)를 이용해 mutable로 만들수 있다는 내용... ***이해불가***
+- QueryDict.__getitem__(key) - key에 대한 value를 리턴. key가 존재하지 않으면 django.utils.datastructures.MultiValueDictKeyError를 발생시킴. 파이썬에서 ***KeyError***의 서브클래스임(파이썬에서도 에러를 발생시키는 원인은 같음)
+- QueryDict.get(key, default=None) - __getitem__과 같은 함수
+
+HttpResponse objects
+- Django에 의해 자동으로 생성. view는 HttpResponse를 인스턴스화, populating, 리터닝해야함
+- Typical usage is to pass the contents of the page, as a string, bytestring, or memoryview, to the HttpResponse constructor
+    - response = HttpResponse("Here's the text of the web page.")
+    - response = HttpResponse(b"Bytestrings are also accepted.")
+
+HttpResponse subclasses
+- HttpResponseRedirect - 필수인자는 redirect할 path임. full url, 절대경로, 상대경로 가능
+
+
+
+path(route, view, kwargs, name)
+- route - url pattern을 포함하는 string
+    - 요청을 처리할 때 장고는 요청된 url과 urlpatterns을 위에서부터 차례로 비교하며 서치한다.
+    - domain 이름이나 GET/POST parameter를 서치하지 않는다.
+- view - 장고가 매치되는 urlpattern을 찾으면 HttpRequest object를 첫 인자로 특정 view함수와 route로부터 any captured values를 keyword 인자로서 호출하는데, 호출되는 view 함수를 지정
+- kwargs
+- name - url을 naming한다. naming한 url은 django어디서든지 참조할 수 있다. (특히 template에서)
+
+
+
+DoesNotExist: Question matching query does not exist.
+
+Question.objects.get(id=1) == Question.objects.get(pk=1)
+
+q.choice_set.create() - 새로운 choice 객체를 만든다.
+q.choice_set.count() - 레코드 개수
+Choice.objects.filter() - where
+    - .delete() - delete
+
+shortcuts으로 인해 HttpResponse없이 render(request, template파일경로, dict)만 하면됨
+    - dict - key=template에서 사용할 수 있는 변수명, value= 화면에 출력시 변수에 해당하는 값 출력
+    - render()는 HttpResponse object를 return
+    [Raising a 404 error부터](https://docs.djangoproject.com/en/4.2/intro/tutorial03/)

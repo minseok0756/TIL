@@ -1,0 +1,50 @@
+
+<Oracle>
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.oracle',
+        'NAME': 'SID',
+        'USER': '유저ID',
+        'PASSWORD': '비밀번호',
+        'HOST': '호스트',
+        'PORT': '1521',
+    }
+}
+
+<MySQL>
+DATABASES = { 
+	'default': { 
+    	'ENGINE': 'django.db.backends.mysql', 
+        'NAME': '데이터베이스 이름', 
+        'USER': '아이디(ex:root)', 
+        'PASSWORD': '비밀번호', 
+        'HOST': 'localhost', 
+        'PORT': '3306', 
+     } 
+}
+
+<MongoDB>
+DATABASES = {
+    'default': {
+        'ENGINE': 'djongo',
+        'ENFORCE_SCHEMA': True,
+        'LOGGING': {
+            'version': 1,
+            'loggers': {
+                'djongo': {
+                    'level': 'DEBUG',
+                    'propogate': False,                        
+                }
+            },
+         },
+        'NAME': '원하는 데이터베이스의 이름을 넣어주세요',
+        'CLIENT': {
+            'host': '127.0.0.1',
+            'port': 27017,
+            'username': '몽고DB 사용자 계정을 넣어주세요',
+            'password': "몽고DB 사용자 비밀번호 넣어주세요",
+            'authSource': 'admin',
+            'authMechanism': 'SCRAM-SHA-1'
+        }
+    }
+}
