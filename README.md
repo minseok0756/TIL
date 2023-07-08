@@ -84,3 +84,7 @@
 
 - 230707
     - [Django](./2307/230707/TIL0707_Django.md) - ToDoList mini project
+
+- 230708
+
+    - [ux/ui](./2307/230708/TIL0708_uxui.md) - UX/UI 특강
