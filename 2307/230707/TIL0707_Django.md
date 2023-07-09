@@ -56,6 +56,7 @@ Model 코딩
 - notepad models.py - 테이블을 정의하기 위해 메모장으로 models.py 열기
     - models.CharField(max_length = 255)
     - models.BooleanField(default=False)
+        - default - 레코드 생성시 값을 입력하지 않으면 default값으로 저장됨
 - notepad admins.py - 정의된 테이블이 Admin 화면에 보이게 등록하기 위해 메모장으로 admins.py 열기
     - admin.site.register(Todo)
 - (base) C:\MyTest\ToDoList>python manage.py makemigrations - 데이터베이스에 변경이 필요한 사항을 추출함
@@ -84,6 +85,52 @@ URLconf
           ```
 View 및 Template
 - 뷰함수와 템플릿은 서로에게 영향을 미치기 때문에 보통 같이 작업
-- View
-- Template
-    - template 폴더가 없어 만들어서 코딩해야함
+- ```python
+    def createTodo(request):
+        user_input_str = request.POST['todoContent']
+        new_todo = Todo(content=user_input_str)
+        new_todo.save()
+        return HttpResponseRedirect(reverse('index'))
+        # return HttpResponse("DB에 저장되었어요 =>" + user_input_str)
+  ```
+- Todo(content=user_input_str)
+    - Todo모델에 레코드 생성. content 필드에 user_input_str을 isDone 필드에 False(default)를 저장
+
+- ```html
+            <div class="toDoDiv">
+                <ul class="list-group">
+                    {% for todo in todos %}
+                    {% if todo.isDone == False %}
+                    <form action="./doneTodo/" method="GET">
+                        <div class="input-group" name='todo1'>
+                            <li class="list-group-item">{{ todo.content }}</li>
+                            <input type="hidden" id="todoNum" name="todoNum" value="{{ todo.id }}"></input>
+                            <span class="input-group-addon">
+                                <button type="submit" class="custom-btn btn btn-danger">완료</button>
+                            </span>
+                        </div>
+                    </form>
+                    {% else %}
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+  ```
+    - ```html
+        <form action="./doneTodo/" method="GET">
+            <input type="hidden" id="todoNum" name="todoNum" value="
+      ```
+    - 제출시 GET method로 './doneTodo/' url에 제출
+    - key name = todoNum, value = todo.id
+
+- ```python
+    def doneTodo(request):
+        done_todo_id = request.GET['todoNum']
+        print("완료한 todo의 id",done_todo_id)
+        todo = Todo.objects.get(id = done_todo_id)
+        todo.isDone = True
+        todo.save()
+        return HttpResponseRedirect(reverse('index'))
+  ```
+    - request.GET['todoNum'] - 제출된 data에서 key name이 'todoNum'인 value를 string으로 반환
+    - return HttpResponseRedirect(reverse('index')) - GET method도 HttpResponseRedirect 사용
