@@ -301,3 +301,5 @@ View 및 Template
 
 
 주의 - 두 프롬프트가 같은 서버를 올리면 웹 브라우저가 제대로 request하지 못한다
+
+[실습](./projectsite/)

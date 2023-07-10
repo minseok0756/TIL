@@ -90,3 +90,7 @@
 
 - 230709
     - Django 실습 문법 정리
+
+- 230710
+    - [Django](./2307/230710/TIL0710_Django.md) - 맛집공유사이트 project
+    - [ML/DL](./2307/230710/TIL0710_ML_DL.md) - pandas(Series, DataFrame)

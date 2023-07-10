@@ -83,6 +83,7 @@ URLconf
                  path('doneTodo/', views.doneTodo, name='doneTodo'), 
             ]
           ```
+          
 View 및 Template
 - 뷰함수와 템플릿은 서로에게 영향을 미치기 때문에 보통 같이 작업
 - ```python
@@ -134,3 +135,6 @@ View 및 Template
   ```
     - request.GET['todoNum'] - 제출된 data에서 key name이 'todoNum'인 value를 string으로 반환
     - return HttpResponseRedirect(reverse('index')) - GET method도 HttpResponseRedirect 사용
+
+
+[실습](./ToDoList/)
