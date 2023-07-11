@@ -105,65 +105,541 @@ URLconf
 View 및 Template
 - 뷰함수와 템플릿은 서로에게 영향을 미치기 때문에 보통 같이 작업
 - ```python
-
+    def index(request):
+        categories = Category.objects.all()
+        restaurants = Restaurant.objects.all()
+        content = {'categories': categories, 'restaurants': restaurants}
+        return render(request, 'shareRes/index.html', content)
+        # return HttpResponse("index")
+        # return render(request,'shareRes/index.html')
   ```
 
-
-
-
-######################################################
-jquery syntax
-- The jQuery syntax is tailor-made for selecting HTML elements and performing some action on the element(s).
-- Basic syntax - $(selector).action()
-    - $ - define/access jQuery
-    - (selector) - query(or find) HTML elements
-    - jQuery action() - be performed on the element(s)
-    - (ex) $(".test").hide() - hides all elements with class="test".
-
-
-The Document Ready Event
-- You might have noticed that all jQuery methods in our examples, are inside a document ready event:
-- ```js
-  $(document).ready(function(){
-
-    // jQuery methods go here...
-  });
+- index.html
+- ```html
+    <a href="categoryCreate/" class="categoryAddBtn btn btn-info" role="button">+</a>
   ```
-    - This is to prevent any jQuery code from running before the document is finished loading (is ready).
-    - It is good practice to wait for the document to be fully loaded and ready before working with it.
-    - 같은표현      
-    ```js
-    $(function(){
+    - role="button" - The button role is for clickable elements that trigger a response when activated by the user. Adding role="button" tells the screen reader the element is a button, but provides no button functionality.
+    - href="categoryCreate/" -> view.categoryCreate
 
-    // jQuery methods go here...
+    - ```python
+        def categoryCreate(request) : #기존 카테고리 출력
+            categories = Category.objects.all()
+            content = {'categories': categories}
+            # return HttpResponse("categoryCreate")
+            return render(request, 'shareRes/categoryCreate.html',content)
+      ```
 
-    });
-    ```
+    - ```html
+        <form action="./create" method="POST" onsubmit="return categoryAddCheckFrom();">{% csrf_token %}
+            <div class="input-group">
+                <input type="submit" class="resAddBtn btn btn-success" role="button" value="추가"/>
+                <input id="categoryName" name="categoryName" type="text" class="form-control" placeholder="추가할 카테고리명을 입력하세요." style="width:650px; float:right; border-radius:4px;">
+            </div>
+        </form>
+        <a href ="/" class="resAddBtn btn btn-info" role="button">홈으로</a>
+      ```
+        - onsubmit="return categoryAddCheckFrom();" - 함수를 실행시켜 true값을 리턴해야 제출됨     
+        ```html
+        <script>
+            function categoryAddCheckFrom(){
+                if($('#categoryName').val().length <= 0){
+                    alert('추가할 카테고리 이름을 입력해주세요.')
+                    $('#categoryName').focus()
+                    return false;
+                }
+                else{
+                    return true;
+                }
+            }
+        </script>
+        ```
+            - jquery syntax
+                - The jQuery syntax is tailor-made for selecting HTML elements and performing some action on the element(s).
+                - Basic syntax - $(selector).action()
+                    - $ - define/access jQuery
+                    - (selector) - query(or find) HTML elements
+                        - It's based on the existing CSS Selectors
+                    - jQuery action() - be performed on the element(s)
+            - $('#categoryName') - id = categoryName인 태그 선택
+                - <input id="categoryName" name="categoryName" type="text" class="form-control" placeholder="추가할 카테고리명을 입력하세요." style="width:650px; float:right; border-radius:4px;">
+            - .val() - returns the value of the value attribute of the FIRST matched element.
+                - <input>에 입력한 값을 반환
+                - .length - 반환된 글자의 개수
+            - .focus() - The focus() method triggers the focus event
+                - The focus event occurs when an element gets focus (when selected by a mouse click or by "tab-navigating" to it)
+                - 반환된 글자수가 0보다 작거나 같으면 <input>태그에 focus event가 발생된다.
 
-jQuery Selectors
-- jQuery selectors allow you to select and manipulate HTML element(s).
-- jQuery selectors are used to "find" (or select) HTML elements based on their name, id, classes, types, attributes, values of attributes and much more. It's based on the existing CSS Selectors, and in addition, it has some own custom selectors.
-- All selectors in jQuery start with the dollar sign and parentheses: $().
-    - $(this) - Selects the current HTML element
+        - "./create" url에 POST method로 key = 'categoryName' value = text에 적힌 데이터를 submit. - views.Create_category()
+            - ```python
+                def Create_category(request): # 카테고리 새로 추가하기
+                    category_name = request.POST['categoryName']
+                    new_category = Category(category_name = category_name)
+                    new_category.save()
+                    return HttpResponseRedirect(reverse('index'))
+                    # return HttpResponse("여기서 category Create 기능을 구현할거야.")
+              ```
+                - index url로 요청
+
+    - categoryCreate.html 나머지부분
+    - ```html
+        {% for category in categories %}
+        {% if category.id == 3%}
+            <div class="input-group">
+                <span class="input-group-addon" style="border:1px solid #ccc; border-radius: 4px;">{{ category.category_name }}</span>
+            </div>
+        {% endif %}
+        {% endfor %}
+      ```
+    - ```html
+        {% for category in categories %}
+        {% if category.id != 3%}
+        <form action="./delete" method="POST">{% csrf_token %}
+            <div class="input-group">
+                <span class="input-group-addon" id="" style="border:1px solid #ccc; border-radius: 4px;">{{category.category_name}}</span>
+                <input type="hidden" name="categoryId" id="categoryId" value="{{category.id}}"/>
+                <input type="submit" class="resAddBtn btn btn-danger" role="button" value="삭제"/>
+            </div>
+        </form>
+        {% endif %}
+        {% endfor %}
+      ```
+        - "./delete" url에 POST method로 key = 'categoryId' value = category.id 데이터를 submit - views.Delete_category()
+        - ```python
+            def Delete_category(request):
+                category_id = request.POST['categoryId']
+                delete_category = Category.objects.get(id = category_id)
+                delete_category.delete()
+                return HttpResponseRedirect(reverse('cateCreatePage'))
+          ```
+            - url name = 'cateCreatePage' url로 요청 
+                - views.categoryCreate()
+                - shareRes/categoryCreate.html
+                - 삭제된 카테고리 데이터를 기반으로 카테고리 추가하기 페이지 다시 구성
+                - 웹 브라우저에서는 삭제버튼을 누르면 해당 카테고리가 삭제됨
+    - ```html
+        <a href ="/" class="resAddBtn btn btn-info" role="button">홈으로</a>
+      ```
+        - index.html 화면으로
 
 
-jQuery Syntax For Event Methods
-```js
-$("p").click(function(){
-  // action goes here!!
-});
-```
+- index.html - `<a>`이후 다음부분
+- ```html
+    <ul class="restaurantListDiv nav nav-pills nav-stacked">
+
+        {% for category in categories %}
+        <li class="category deactive">{{ category.category_name}}</li>
+        <ul class="restaurantList">
+
+            {% for restaurant in restaurants %}
+            {% if restaurant.category == category %}
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <input name="checks" id="check{{restaurant.id}}" type="checkbox" value="{{restaurant.id}}">
+                </span>
+                <a href="restaurantDetail/{{restaurant.id}}">
+                    <input name="res{{restaurant.id}}" id="res{{restaurant.id}}"
+                        type="text" class="form-control" disabled style="cursor: pointer;" value="{{restaurant.restaurant_name}}">
+                </a>
+            </div>
+            {% endif %}
+            {% endfor %}
+
+        </ul>
+        {% endfor %}
+    </ul>
+  ```
+    - ```html
+        <script>
+            $(document).ready(function(){
+                $('.restaurantListDiv>li').click(function(){
+                    if ($(this).hasClass('active')){
+                        $(this).addClass('deactive')
+                        $(this).removeClass('active')
+                        $(this).next('ul').slideUp();
+                    }else{
+                        $(this).removeClass('deactive')
+                        $(this).addClass('active')
+                        $(this).next('ul').slideDown();
+                    }
+
+                    
+                })
+            });
+        </script>    
+      ```
+        - $(document).ready() - The Document Ready Event
+            - ```js
+                $(document).ready(function(){
+
+                    // jQuery methods go here...
+                });
+              ```
+                - This is to prevent any jQuery code from running before the document is finished loading (is ready).
+                - It is good practice to wait for the document to be fully loaded and ready before working with it.
+                - 같은표현      
+                ```js
+                $(function(){
+
+                // jQuery methods go here...
+
+                });
+                ```
+        - $('.restaurantListDiv>li') 
+            - <ul class="restaurantListDiv nav nav-pills nav-stacked"> 자식태그인
+            - <li class="category deactive">{{ category.category_name}}</li> 선택
+        - .click() - click event
+        - $(this) - Selects the current HTML element
+            - <li>를 의미
+        - .hasClass('active') - active클래스를 가지고 있는지 확인
+        - .addClass('deactive) - deactive클래스 추가
+        - .removeClass('active') - active클래스 제거
+        - .next('ul') - <li>태그의 바로 뒤 형제태그 중 <ul>태그
+            - .slideUp() - <ul>태그를 slide up
+            - .slideDown() - <ul>태그를 slide down
+    
+    - `<a href="restaurantDetail/{{restaurant.id}}"></a>` - 'restaurantDetail/`<str:res_id>`' url로 이동
+        - views.restaurantDetail()
+        - ```python
+            def restaurantDetail(request,res_id) :
+                restaurant = Restaurant.objects.get(id = res_id)
+                content = {'restaurant': restaurant}
+                # return HttpResponse("restaurantDetail")
+                return render(request, 'shareRes/restaurantDetail.html', content)
+          ```
+        - ```html
+            <script>
+                function checkFrom(){
+                    if ($('#resTitle').val().length <= 0){
+                        alert("맛집 이름을 입력해주세요.")
+                        $('#resTitle').focus()
+                        return false
+                    }else if($('#resLink').val().length <= 0){
+                        alert("관련 링크를 입력해주세요.")
+                        $('#resLink').focus()
+                        return false
+                    }else if($('#resContent').val().length <= 0){
+                        alert("상세 내용을 입력해주세요.")
+                        $('#resContent').focus()
+                        return false
+                    }else if($('#resLoc').val().length <= 0){
+                        alert("장소 키워드를 입력해주세요.")
+                        $('#resLoc').focus()
+                        return false
+                    }else{
+                        return true
+                    }
+                }
+            </script>
+
+            <div class="input-group">
+                <span class="input-group-addon" id="sizing-addon2">카테고리</span>
+                <input id="resCategory" name="resCategory" type="text" class="form-control" disabled
+                       value="{{restaurant.category.category_name}}">
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon" id="sizing-addon2">맛집 이름</span>
+                <input id="resTitle" name="resTitle" type="text" class="form-control" disabled
+                        value="{{restaurant.restaurant_name}}">
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon" id="sizing-addon2">관련 링크</span>
+                <input id="resLink" name="resLink" type="text" class="form-control" disabled
+                        value="{{restaurant.restaurant_link}}">
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon" id="sizing-addon2">상세 내용</span>
+                <textarea id="resContent" name="resContent" cols="90" rows="10" disabled value="">
+                    {{restaurant.restaurant_content}}
+                </textarea>
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon" id="sizing-addon2">장소 키워드</span>
+                <input id="resLoc" name="resLoc" type="text" class="form-control" disabled value="{{restaurant.restaurant_keyword}}">
+            </div>
+
+            <form action="./delete" method="POST">{% csrf_token %}
+                <input type="hidden" id="resId" name="resId" value="{{restaurant.id}}"/>
+                <input type="submit" class="resAddBtn btn btn-danger" value="삭제하기">
+            </form>
+          ```
+            - 'restaurantDetail/delete' url에 POST method로 key = resId, value = restaurant.id 데이터를 제출 - views.Delete_restaurant()
+                - ```python
+                    def Delete_restaurant(request):
+                        res_id = request.POST['resId']
+                        restaurant = Restaurant.objects.get(id = res_id)
+                        restaurant.delete()
+                        return HttpResponseRedirect(reverse('index'))
+                  ```
+                    - 해당 레코드 삭제 후 'index' url로 요청 
+
+        - restaurantDetail.html 나머지 부분
+        - ```html
+            <a href ="/" class="resAddBtn btn btn-info" role="button">홈으로</a>
+          ```
+            - 'index' url로 이동
+        - ```html
+            <a href ="./updatePage/{{restaurant.id}}" class="resAddBtn btn btn-danger" role="button">수정하기</a>
+          ```
+            - 'restaurantDetail/updatePage/`<str:res_id>`'로 이동 - views.restaurantUpdate()
+            - ```python
+                def restaurantUpdate(request,res_id):
+                    categories = Category.objects.all()
+                    restaurant = Restaurant.objects.get(id = res_id)
+                    # print(restaurant)
+                    content = {'categories': categories, 'restaurant': restaurant}
+                    return render(request, 'shareRes/restaurantUpdate.html', content)
+              ```
+                - ```html
+                    <script>
+                        function checkFrom(){
+                            if ($('#resTitle').val().length <= 0){
+                                alert("맛집 이름을 입력해주세요.")
+                                $('#resTitle').focus()
+                                return false
+                            }else if($('#resLink').val().length <= 0){
+                                alert("관련 링크를 입력해주세요.")
+                                $('#resLink').focus()
+                                return false
+                            }else if($('#resContent').val().length <= 0){
+                                alert("상세 내용을 입력해주세요.")
+                                $('#resContent').focus()
+                                return false
+                            }else if($('#resLoc').val().length <= 0){
+                                alert("장소 키워드를 입력해주세요.")
+                                $('#resLoc').focus()
+                                return false
+                            }else{
+                                return true
+                            }
+                        }
+                    </script>
+
+                    <form action="./update" method="POST" onsubmit="return checkFrom();">{% csrf_token %}
+                        <span class="input-group-addon" id="sizing-addon2">카테고리</span>
+                        <select id="resCategory" name="resCategory" class="resCategory" size="1" required autofocus>
+                            {% for category in categories %}
+                            {% if category == restaurant.category %}
+                            <option value="{{category.id}}" selected>{{category.category_name}}</option>
+                            {% else %}
+                            <option value="{{category.id}}">{{category.category_name}}</option>
+                            {% endif %}
+                            {% endfor %}
+                        </select>  
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon" id="sizing-addon2">맛집 이름</span>
+                            <input id="resTitle" name="resTitle" type="text" class="form-control" placeholder="맛집 이름을 입력해주세요."
+                                aria-describedby="sizing-addon2" value="{{restaurant.restaurant_name}}">
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon" id="sizing-addon2">관련 링크</span>                                         <input id="resLink" name="resLink" type="text" class="form-control" placeholder="관련 링크를 입력해주세요."
+                                aria-describedby="sizing-addon2" value="{{restaurant.restaurant_link}}">
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon" id="sizing-addon2">상세 내용</span>
+                            <textarea id="resContent" name="resContent" cols="90" rows="10" placeholder="상세 내용을 입력해주세요.">
+                                {{restaurant.restaurant_content}}
+                            </textarea>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon" id="sizing-addon2">장소 키워드</span>
+                            <input id="resLoc" name="resLoc" type="text" class="form-control" placeholder="장소 키워드를 입력해주세요."
+                                aria-describedby="sizing-addon2" value="{{restaurant.restaurant_keyword}}">
+                        </div>
+                        <input type="hidden" id="resId" name="resId" value="{{restaurant.id}}"/>
+                        <input type="submit" class="resAddBtn btn btn-info" role="button" value="맛집 수정!"/>
+                        </div>
+                    </form>
+                  ```
+                    - 'restaurantDetail/updatePage/update' url에 POST method로 {'resCategory':category.id}, "resTitle":'restaurant.restaurant_name', "resLink":'restaurant.restaurant_link', "resContent":'restaurant.restaurant_content', "resLoc":'restaurant.restaurant_keyword', "resId":restaurant.id} 데이터를 checkFrom 함수가 true를 리턴하면 제출 - views.Update_restaurant()
+                        - ```python
+                            def Update_restaurant(request):
+                                print("여기 왔나요?")
+                                resId = request.POST['resId']
+                                change_category_id = request.POST['resCategory']
+                                change_category = Category.objects.get(id = change_category_id)
+                                change_name = request.POST['resTitle']
+                                change_link = request.POST['resLink']
+                                change_content = request.POST['resContent']
+                                change_keyword = request.POST['resLoc']
+                                before_restaurant = Restaurant.objects.get(id = resId)
+                                before_restaurant.category = change_category
+                                before_restaurant.restaurant_name = change_name
+                                before_restaurant.restaurant_link = change_link
+                                before_restaurant.restaurant_content = change_content
+                                before_restaurant.restaurant_keyword = change_keyword
+                                before_restaurant.save()
+                                return HttpResponseRedirect(reverse('resDetailPage', kwargs={'res_id':resId}))
+                          ```
+                            - 수정된 데이터를 Restaurant model에 저장
+                            - 'resDetailPage' url로 요청 - views.restaurantDetail()
+                                - ```python
+                                    def restaurantDetail(request,res_id) :
+                                        restaurant = Restaurant.objects.get(id = res_id)
+                                        content = {'restaurant': restaurant}
+                                        # return HttpResponse("restaurantDetail")
+                                        return render(request, 'shareRes/restaurantDetail.html', content)
+                                  ```
+                                    - 수정된 데이터를 기반으로 restaurantDetail.html이 변경되어 있음
+
+- index.html - `<a>`이후 다음부분
+- ```html
+    <a href="restaurantCreate/" class="sendBtn btn btn-info" role="button">맛집 추가하기</a>
+  ```
+    - "restaurantCreate/" url로 이동 - restaurantCreate()
+    - ```python
+        def restaurantCreate(request) :
+            categories = Category.objects.all()
+            content = {'categories': categories}
+            # return HttpResponse("restaurantCreate")
+            return render(request,'shareRes/restaurantCreate.html',content)
+      ```
+    - ```html
+        <script>
+            function checkFrom(){
+                if ($('#resTitle').val().length <= 0){
+                    alert("맛집 이름을 입력해주세요.")
+                    $('#resTitle').focus()
+                    return false
+                }else if($('#resLink').val().length <= 0){
+                    alert("관련 링크를 입력해주세요.")
+                    $('#resLink').focus()
+                    return false
+                }else if($('#resContent').val().length <= 0){
+                    alert("상세 내용을 입력해주세요.")
+                    $('#resContent').focus()
+                    return false
+                }else if($('#resLoc').val().length <= 0){
+                    alert("장소 키워드를 입력해주세요.")
+                    $('#resLoc').focus()
+                    return false
+                }else{
+                    return true
+                }
+            }
+        </script>
+
+        <form action="./create" method="POST" onsubmit="return checkFrom();">{% csrf_token %}
+            <div class="inputDiv">
+                <div class="input-group">
+                    <span class="input-group-addon" id="sizing-addon2">카테고리</span>
+                    <select id="resCategory" name="resCategory" class="resCategory" size="1" required autofocus>
+                        {% for category in categories %}
+                        {% if category.id == 3 %}
+                        <option value="{{category.id}}" selected>{{category.category_name}}</option>
+                        {% else %}
+                        <option value="{{category.id}}">{{category.category_name}}</option>
+                        {% endif %}
+                        {% endfor %}
+                    </select>  
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon" id="sizing-addon2">맛집 이름</span>
+                    <input id="resTitle" name="resTitle" type="text" class="form-control" placeholder="맛집 이름을 입력해주세요." aria-describedby="sizing-addon2">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon" id="sizing-addon2">관련 링크</span>
+                    <input id="resLink" name="resLink" type="text" class="form-control" placeholder="관련 링크를 입력해주세요." aria-describedby="sizing-addon2">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon" id="sizing-addon2">상세 내용</span>
+                    <textarea id="resContent" name="resContent" cols="90" rows="10" placeholder="상세 내용을 입력해주세요."></textarea>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon" id="sizing-addon2">장소 키워드</span>
+                    <input id="resLoc" name="resLoc" type="text" class="form-control" placeholder="장소 키워드를 입력해주세요." aria-describedby="sizing-addon2">
+                </div>
+                <input type="submit" class="resAddBtn btn btn-info" role="button" value="맛집 추가!"/>
+            </div>
+        </form>
+      ```
+        - 'restaurantCreate/create' url에 POST method로 {'resCategory':category.id}, "resTitle":'text', "resLink":'text', "resContent":'text', "resLoc":'text'} 데이터를 checkFrom 함수가 true를 리턴하면 제출 - views.Create_restaurant()
+        - ```python
+            def Create_restaurant(request) :
+                category_id = request.POST['resCategory']
+                category = Category.objects.get(id = category_id)
+                name = request.POST['resTitle']
+                link = request.POST['resLink']
+                content = request.POST['resContent']
+                keyword = request.POST['resLoc']
+                new_res = Restaurant(category = category, restaurant_name = name, restaurant_link = link,
+                                    restaurant_content = content, restaurant_keyword = keyword)
+                new_res.save()
+                return HttpResponseRedirect(reverse('index'))
+          ```
+            - POST method로 넘어온 데이터를 기반으로 Restaurant model에 새로운 레코드 생성
+            - 'index' url로 요청 - views.index()
+            - 새로운 레코드를 기반으로 index.html 구성
+
+- index.html 나머지 부분
+- ```html
+    <script>
+    function emailCheckForm(){
+        var isCheckLessThanOne = true
+        for(i = 1; i <= 6; i++){
+            var idString = "check"+i
+            var isChecked = $("#"+idString).is(':checked')
+            console.log("check"+i,isChecked)
+            if (isChecked){
+                isCheckLessThanOne = false
+                break
+            }
+        }
+        console.log(isCheckLessThanOne)
+        if($('#inputReceiver').val().length <= 0){
+            alert("이메일 수신자를 1명 이상 입력해주세요.")
+            $('#inputReceiver').focus()
+            return false
+        }else if($('#inputTitle').val().length <= 0){
+            alert("이메일 제목을 입력해주세요.")
+            $('#inputTitle').focus()
+            return false
+        }else if(isCheckLessThanOne){
+            alert("맛집을 하나 이상 선택해주세요.")
+            return false
+        }else{
+            return true;
+        }
+    }
+    </script>
+  ```
+    - .is() - checks if one of the selected elements matches the selectorElement
+        - the selected elements - "#"+idString
+        - the selectorElement - :checked
+    - :checked - selects all checked checkboxes or radio buttons
+
+  ```html
+    <form action="./sendEmail/send/" method="POST" onsubmit="return emailCheckForm();"> 
+        <input name="checks" id="check{{restaurant.id}}" type="checkbox" value="{{restaurant.id}}">
+        <input name="res{{restaurant.id}}" id="res{{restaurant.id}}"
+        type="text" class="form-control" disabled style="cursor: pointer;" value="{{restaurant.restaurant_name}}">
 
 
+        <div class="emailContentHeader">
+            <h4>수신자 <span class="inputReceiverSub">콤마(,)로 구분해서 여러명에게 보낼 수 있습니다.</span></h4>
+            <input class="inputReceiver" name="inputReceiver" id="inputReceiver" type="text" placeholder="수신자를 적어주세요."/><br/>
+        </div>
+        <div class="emailContentHeader">
+            <h4>제목</h4>
+            <input class="inputTitle" name="inputTitle" id="inputTitle" type="text" placeholder="제목을 적어주세요."/><br/>
+        </div>
+        <div class="emailContent">
+            <h4>인사말</h4>
+            <textarea class="inputContent" name="inputContent" id="inputContent" cols="50" rows="10" placeholder="인사말을 적어주세요."></textarea>
+        </div>
+                                    
+        </div>
+        <div>
+            <input type="submit" class="sendBtn btn btn-info" role="button" value="이메일 발송하기"/>
+        </div>    
+    </form>
+  ```
+    - 'send/' url에 POST method로 {"checks":restaurant.id}, "res{{restaurant.id}}":'restaurant.restaurant_name', "inputReceiver":'text', "inputTitle":'text', "inputContent":'text'} 데이터를 emailCheckForm 함수가 true를 리턴하면 제출 - views.sendEmail()
+    - ```python
+        def sendEmail(request):
+            return HttpResponse("sendEmail")
+      ```
 
-
-
-
-The button role is for clickable elements that trigger a response when activated by the user. Adding role="button" tells the screen reader the element is a button, but provides no button functionality.
-
-
-
-
-
+---
 
 [실습](./RestaurantShare/)
