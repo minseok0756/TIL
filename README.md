@@ -94,3 +94,6 @@
 - 230710
     - [Django](./2307/230710/TIL0710_Django.md) - 맛집공유사이트 project
     - [ML/DL](./2307/230710/TIL0710_ML_DL.md) - pandas(Series, DataFrame)
+
+- 230711
+    - [ML/DL](./2307/230711/TIL0711_ML_DL.md) - pandas(loc/iloc, function)
