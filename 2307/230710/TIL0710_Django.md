@@ -119,8 +119,9 @@ View 및 Template
     <a href="categoryCreate/" class="categoryAddBtn btn btn-info" role="button">+</a>
   ```
     - role="button" - The button role is for clickable elements that trigger a response when activated by the user. Adding role="button" tells the screen reader the element is a button, but provides no button functionality.
-    - href="categoryCreate/" -> view.categoryCreate
+    - href="categoryCreate/" -> view.categoryCreate()
 
+    - view.categoryCreate()
     - ```python
         def categoryCreate(request) : #기존 카테고리 출력
             categories = Category.objects.all()
@@ -129,6 +130,7 @@ View 및 Template
             return render(request, 'shareRes/categoryCreate.html',content)
       ```
 
+    - categoryCreate.html
     - ```html
         <form action="./create" method="POST" onsubmit="return categoryAddCheckFrom();">{% csrf_token %}
             <div class="input-group">
@@ -139,20 +141,20 @@ View 및 Template
         <a href ="/" class="resAddBtn btn btn-info" role="button">홈으로</a>
       ```
         - onsubmit="return categoryAddCheckFrom();" - 함수를 실행시켜 true값을 리턴해야 제출됨     
-        ```html
-        <script>
-            function categoryAddCheckFrom(){
-                if($('#categoryName').val().length <= 0){
-                    alert('추가할 카테고리 이름을 입력해주세요.')
-                    $('#categoryName').focus()
-                    return false;
+        - ```html
+            <script>
+                function categoryAddCheckFrom(){
+                    if($('#categoryName').val().length <= 0){
+                        alert('추가할 카테고리 이름을 입력해주세요.')
+                        $('#categoryName').focus()
+                        return false;
+                    }
+                    else{
+                        return true;
+                    }
                 }
-                else{
-                    return true;
-                }
-            }
-        </script>
-        ```
+            </script>
+          ```
             - jquery syntax
                 - The jQuery syntax is tailor-made for selecting HTML elements and performing some action on the element(s).
                 - Basic syntax - $(selector).action()
@@ -161,24 +163,24 @@ View 및 Template
                         - It's based on the existing CSS Selectors
                     - jQuery action() - be performed on the element(s)
             - $('#categoryName') - id = categoryName인 태그 선택
-                - <input id="categoryName" name="categoryName" type="text" class="form-control" placeholder="추가할 카테고리명을 입력하세요." style="width:650px; float:right; border-radius:4px;">
+                - `<input id="categoryName" name="categoryName" type="text" class="form-control" placeholder="추가할 카테고리명을 입력하세요." style="width:650px; float:right; border-radius:4px;">`
             - .val() - returns the value of the value attribute of the FIRST matched element.
-                - <input>에 입력한 값을 반환
+                - `<input>`에 입력한 값을 반환
                 - .length - 반환된 글자의 개수
             - .focus() - The focus() method triggers the focus event
                 - The focus event occurs when an element gets focus (when selected by a mouse click or by "tab-navigating" to it)
-                - 반환된 글자수가 0보다 작거나 같으면 <input>태그에 focus event가 발생된다.
+                - 반환된 글자수가 0보다 작거나 같으면 `<input>`태그에 focus event가 발생된다.
 
         - "./create" url에 POST method로 key = 'categoryName' value = text에 적힌 데이터를 submit. - views.Create_category()
-            - ```python
-                def Create_category(request): # 카테고리 새로 추가하기
-                    category_name = request.POST['categoryName']
-                    new_category = Category(category_name = category_name)
-                    new_category.save()
-                    return HttpResponseRedirect(reverse('index'))
-                    # return HttpResponse("여기서 category Create 기능을 구현할거야.")
-              ```
-                - index url로 요청
+        - ```python
+            def Create_category(request): # 카테고리 새로 추가하기
+                category_name = request.POST['categoryName']
+                new_category = Category(category_name = category_name)
+                new_category.save()
+                return HttpResponseRedirect(reverse('index'))
+                # return HttpResponse("여기서 category Create 기능을 구현할거야.")
+          ```
+            - index url로 요청
 
     - categoryCreate.html 나머지부분
     - ```html
@@ -285,17 +287,17 @@ View 및 Template
                 });
                 ```
         - $('.restaurantListDiv>li') 
-            - <ul class="restaurantListDiv nav nav-pills nav-stacked"> 자식태그인
-            - <li class="category deactive">{{ category.category_name}}</li> 선택
+            - `<ul class="restaurantListDiv nav nav-pills nav-stacked">` 자식태그인
+            - `<li class="category deactive">`{{ category.category_name}}`</li>` 선택
         - .click() - click event
         - $(this) - Selects the current HTML element
-            - <li>를 의미
+            - `<li>`를 의미
         - .hasClass('active') - active클래스를 가지고 있는지 확인
         - .addClass('deactive) - deactive클래스 추가
         - .removeClass('active') - active클래스 제거
-        - .next('ul') - <li>태그의 바로 뒤 형제태그 중 <ul>태그
-            - .slideUp() - <ul>태그를 slide up
-            - .slideDown() - <ul>태그를 slide down
+        - .next('ul') - `<li>`태그의 바로 뒤 형제태그 중 `<ul>`태그
+            - .slideUp() - `<ul>`태그를 slide up
+            - .slideDown() - `<ul>`태그를 slide down
     
     - `<a href="restaurantDetail/{{restaurant.id}}"></a>` - 'restaurantDetail/`<str:res_id>`' url로 이동
         - views.restaurantDetail()
