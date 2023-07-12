@@ -97,3 +97,6 @@
 
 - 230711
     - [ML/DL](./2307/230711/TIL0711_ML_DL.md) - pandas(loc/iloc, function)
+
+- 230712
+    - [ML/DL](./2307/230712/TIL0712_ML_DL.md) - pandas(cut, qcut, merge, concat, pivot_table, groupby)
