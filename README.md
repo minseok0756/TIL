@@ -93,14 +93,18 @@
 
 - 230710
     - [Django](./2307/230710/TIL0710_Django.md) - 맛집공유사이트 project, jquery
-    - [ML/DL_pandas](./2307/230710/TIL0710_ML_DL.md) - Series, DataFrame
+    - [ML/DL_pandas](./2307/230710/TIL0710_ML_DL_pandas.md) - Series, DataFrame
 
 - 230711
-    - [ML/DL_pandas](./2307/230711/TIL0711_ML_DL.md) - loc/iloc, function
+    - [ML/DL_pandas](./2307/230711/TIL0711_ML_DL_pandas.md) - loc/iloc, function
 
 - 230712
-    - [ML/DL_pandas](./2307/230712/TIL0712_ML_DL.md) - cut, qcut, merge, concat, pivot_table, groupby
+    - [ML/DL_pandas](./2307/230712/TIL0712_ML_DL_pandas.md) - cut, qcut, merge, concat, pivot_table, groupby
 
 - 230713
-    - [ML/DL_pandas](./2307/230713/TIL0713_ML_DL.md) - matplotlib, seaborn, folium
-    - [ML/DL_기초통계](./2307/230713/TIL0713_기초통계.md) - 변수종류, 데이터 중심지표, 데이터 산포도지표
+    - [ML/DL_pandas](./2307/230713/TIL0713_ML_DL_pandas.md) - matplotlib, seaborn, folium
+    - [ML/DL_기초통계](./2307/230713/TIL0713_ML_DL_기초통계.md) - 변수종류, 데이터 중심지표, 데이터 산포도지표
+
+- 230714
+    - [ML/DL_기초통계](./2307/230714/TIL0714_ML_DL_기초통계.md) - 공분산, 상관계수, 회귀진석, 히트맵, 엔스컴
+    - [ML](./2307/230714/TIL0714_ML.md) - 지도학습, 비지도학습, 강화학습
