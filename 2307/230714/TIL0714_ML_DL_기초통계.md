@@ -3,10 +3,12 @@
 두 데이터 사이의 관계를 나타내는 지표
 - 공분산 
     - np.cov() - 리턴: 공분산 행렬
+    - df.cov()
+    - s.cov(other Series) - 값
 - 상관계수
     - np.corrcoef() - 리턴: 상관 행렬
     - df.corr()
-
+    - s.corr() - 값
 <br>
 
 2차원 데이터의 시각화
@@ -18,6 +20,7 @@
         - 인자로 리스트를 사용
         - np.poly1d([1]) - 1
         - np.poly1d([1,2]) - x+2
+        - nplpoly1d([1,2,3]) - x^2+2x+3
 - 히트맵
 
 <br>

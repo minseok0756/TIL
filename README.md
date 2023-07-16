@@ -102,7 +102,7 @@
     - [ML/DL_pandas](./2307/230712/TIL0712_ML_DL_pandas.md) - cut, qcut, merge, concat, pivot_table, groupby
 
 - 230713
-    - [ML/DL_pandas](./2307/230713/TIL0713_ML_DL_pandas.md) - matplotlib, seaborn, folium
+    - [ML/DL_matplotliib_seaborn](./2307/230713/TIL0713_ML_DL_matplotlib_seaborn.md) - matplotlib, seaborn, folium
     - [ML/DL_기초통계](./2307/230713/TIL0713_ML_DL_기초통계.md) - 변수종류, 데이터 중심지표, 데이터 산포도지표
 
 - 230714

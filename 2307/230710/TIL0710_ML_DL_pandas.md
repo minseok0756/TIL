@@ -1,10 +1,14 @@
-# ML/DL
+# ML/DL - pandas
 
 데이터 다루기 - pandas
-    - 데이터 처리
-        - 가공(Series, DataFrame)
-        - Null 처리
+- 데이터 처리
+    - 가공(Series, DataFrame)
+    - Null 처리
+
+<br>
+
 기초통계 - 기술통계
+
 머신러닝/딥러닝
 - 데이터
 - 학습
@@ -12,6 +16,7 @@
 - 모델링(.H5)
 - 예측(추천시스템, ...)
 
+<br>
 
 데이터 다루기 - pandas
 1. 생성 - Series(1차원), DataFrame(2차원)
