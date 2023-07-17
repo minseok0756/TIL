@@ -110,4 +110,4 @@
     - [ML](./2307/230714/TIL0714_ML.md) - 지도학습, 비지도학습, 강화학습
 
 - 230717
-    - [ML](./2307/230717/TIL0717_ML.md) - 
+    - [ML](./2307/230717/TIL0717_ML.md) - 머신러닝프로세스, 교차검증(k-fold, stratified k-fold, cross_val_score), GridSearchCV
