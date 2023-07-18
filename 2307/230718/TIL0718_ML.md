@@ -4,6 +4,9 @@
 - 데이터 전처리
     - 데이터 클린징
     - 결손값 처리(Null/NaN 처리)
+        - 평균값 대체
+        - 드롭
+        - ('N'과 같은) 고정값으로 변경
     - 데이터 인코딩(레이블 인코딩, 원-핫 인코딩)
     - 데이터 스케일링
     - 이상치 제거
@@ -32,21 +35,23 @@
 - 문자형 카테코리형 속성은 모두 숫자값으로 변환/인코딩되어야 함
 
 - 레이블(Label) 인코딩
+    - 카테고리 피처를 코드형 숫자값으로 변환
     - from sklearn.preprocessing import LabelEncoder
     - encoder = LabelEncoder()
     - encoder.fit(items) - Fit label encoder
     - encoder.transform(items) - Transform labels to normalized encoding
     - encoder.inverse_transform([3,5,2,3,1,0]) - Transform labels back to original encoding
     - 속성
-        - .classes_ - Holds the label for each class
+        - .classes_ - 0번부터 순서대로 인코딩 값에 대한 원본값
+    - 단점 - 인코딩된 레이블에 숫자의 크고 작음 특성이 작용함
+        - 냉장고는 1, 믹서기는 2로 변환된 경우 2가 1보다 크므로 믹서기에 더 가중치가 부여되거나 더 중요하게 인식할 가능성이 있다
+    - 따라서 레이블 인코딩은 선형회귀와 같은 ML 알고리즘에는 적용되면 안된다.
+        - 트리 계열 알고리즘은 문제 없음
+    - 해결 - 원-핫 인코딩
 
 - 원-핫(One-Hot) 인코딩
     - 피처 값의 유형에 따라 새로운 피처를 추가해 고유 값에 해당하는 컬럼에만 1을 표시하고 나머지 컬럼에는 0을 표시하는 방식
-    - 먼저 숫자값으로 변환
-        - encoder=LabelEncoder()
-        - encoder.fit(items)
-        - labels=encoder.transform(items)
-    - 2차원 데이터로 변환
+    - 입력값으로 2차원 데이터 필요
         - labels = labels.reshape(-1,1)
     - 원-핫 인코딩
         - oh_encoder = OneHotEncoder()
@@ -85,14 +90,15 @@
         - iris_scaled = scaler.transform(iris_df)  
 
 - fit(), transform() / fit_transform() 주의사항
-    - fit() 함수를 사용하면 fit()함수에 사용할 때 적용된 정보가 저장된다.
-    - 예를 들어 MinMaxScaler.fit(iris_df)를 실행하면 iris_df데이터의 max,min값이 저장된다.(객체에 저장될 것으로 예상됨)
-    - MinMaxScaler.transform(iris_df2)를 실행하면 iris_df2데이터의 max,min값이 아닌 저장되어있던 irir_df데이터의 max,min으로 iris_df2데이터를 정규화한다.
+    - fit()은 데이터 변환을 위한 기준 정보(최댓값, 최솟값 등)를 설정하며
+    - transform()은 설정된 정보를 이용해 데이터를 변환한다
+    - 예를 들어 MinMaxScaler.fit(iris_df)를 실행하면 iris_df데이터의 max,min값이 설정된다.
+    - MinMaxScaler.transform(iris_df2)를 실행하면 iris_df2데이터의 max,min값이 아닌 설정되어있던 irir_df데이터의 max,min으로 iris_df2데이터를 정규화한다.
     - 저장되어있는 정보를 변경하려면 변경하고자 하는 데이터로 fit()하면 된다.
     - MinMaxScaler.fit(iris_df2)
     - fit_transform() 함수는 두번 실행할 것을 한번에 실행할 수 있다는 장점이있지만
     - 매번 fit()함수를 사용하여 저장되어있는 정보를 매번 수정하게 된다
-    - 따라서 의도하지 않은 결과를 가져올 수 있다.
+    - 따라서 올바른 결과를 가져올 수 없다.
 
         <br>
 
