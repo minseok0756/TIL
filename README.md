@@ -111,3 +111,6 @@
 
 - 230717
     - [ML](./2307/230717/TIL0717_ML.md) - 머신러닝프로세스, 교차검증(k-fold, stratified k-fold, cross_val_score), GridSearchCV
+
+- 230718
+    - [ML](./2307/230718/TIL0718_ML.md) - 데이터 전처리, 인코딩, 스케일링, 타이타닉예제
