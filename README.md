@@ -151,3 +151,9 @@
 
 - 230802
     - [project](./2308/230802/TIIL0802_project.md) - 주제 선정, 도메인 리서치
+
+- 230830
+    - [PySpark](./2308/230830/TIL0830_pyspark.md) - 스파크 데이터프레임 기본, 스키마 설정, 행/열 출력, 새로운 컬럼 생성, 기존 컬럼값 대체, 컬럼이름변경, pure sql 사용, select/filter/show/collect, groupby/agg/함수사용
+
+- 230831
+    - [PySpark](./2308/230831/TIL0831_pyspark.md) - datetime 다루기, 결측값 다루기, 머신러닝 알고리즘에 적용하기 위한 데이터 전처리, 선형회귀모델
