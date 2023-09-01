@@ -157,3 +157,6 @@
 
 - 230831
     - [PySpark](./2308/230831/TIL0831_pyspark.md) - datetime 다루기, 결측값 다루기, 머신러닝 알고리즘에 적용하기 위한 데이터 전처리, 선형회귀모델
+
+- 230901
+    - [PySpark](./2309/230901/TIL0901_pyspark.md) - 로지스틱회귀, evaluator, one-hot encoding, pipeline, RandomForest, Gradient Boosting Tree, Decision Tree, feature importance
