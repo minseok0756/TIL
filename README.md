@@ -160,3 +160,6 @@
 
 - 230901
     - [PySpark](./2309/230901/TIL0901_pyspark.md) - 로지스틱회귀, evaluator, one-hot encoding, pipeline, RandomForest, Gradient Boosting Tree, Decision Tree, feature importance
+
+- 230904
+    - [PySpark](./2309/230904/TIL0904_pyspark.md) - kmeansclustering, NLP, Recommender System, spark streaming
