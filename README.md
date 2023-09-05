@@ -163,3 +163,6 @@
 
 - 230904
     - [PySpark](./2309/230904/TIL0904_pyspark.md) - kmeansclustering, NLP, Recommender System, spark streaming
+
+- 230905
+    - [PySpark](./2309/230905/TIL0905_pyspark.md) - schema정의, 정의한 schema로 데이터프레임생성, 정의한 schema로 파일읽기, 컬럼
