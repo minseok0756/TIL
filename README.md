@@ -166,3 +166,6 @@
 
 - 230905
     - [PySpark](./2309/230905/TIL0905_pyspark.md) - schema정의, 정의한 schema로 데이터프레임생성, 정의한 schema로 파일읽기, 컬럼
+
+- 230906
+    - [PySpark](./2309/230906/TIL0906_pyspark.md) - row, DataFrameReader, DataFrameWriter, projection, filter, 칼럼 이름 변경 및 추가 삭제, 날짜 타입으로 변경, 집계연산
