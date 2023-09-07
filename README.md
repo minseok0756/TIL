@@ -169,3 +169,6 @@
 
 - 230906
     - [PySpark](./2309/230906/TIL0906_pyspark.md) - row, DataFrameReader, DataFrameWriter, projection, filter, 칼럼 이름 변경 및 추가 삭제, 날짜 타입으로 변경, 집계연산
+
+- 230907
+    - [PySpark](./2309/230907/TIL0907_pyspark.md) - spark.sql(), 테이블/뷰 생성, 내장 데이터 소스 읽기/쓰기, parquet/JSON/CSV/에이브로/ORC/이미지/이진 파일
