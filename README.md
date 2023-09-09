@@ -175,3 +175,6 @@
 
 - 230908
     - [PySpark](./2309/230908/TIL0908_pyspark.md) - 사용자 정의 함수(UDF), Pandas UDF, Pandas function API, 외부 데이터 소스, JDBC, MySQL/PostgreSQL/애저 코스모스 DB/MS SQL 서버
+
+- 230909
+    - [PySpark](./2309/230909/TIL0909_pyspark.md) - pyspark를 이용한 이전 프로젝트 데이터 전처리
