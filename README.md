@@ -181,3 +181,6 @@
 
 - 230910
     - [PySpark](./2309/230910/TIL0910_pyspark.md) - 복잡한 데이터 유형 내장함수, 고차함수, 일반적인 관계형 연산
+
+- 230911
+    - [PySpark](./2309/230911/TIL0911_pyspark.md) - 머신러닝 파이프라인, transformer, estimator, OneHotEncoder, StiringIndexer, RFormula, RegressionEvaluator, 하이퍼파라미터 튜닝, K-Fold 교차검증, 파이프라인 최적화
