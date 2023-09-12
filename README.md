@@ -184,3 +184,6 @@
 
 - 230911
     - [PySpark](./2309/230911/TIL0911_pyspark.md) - 머신러닝 파이프라인, transformer, estimator, OneHotEncoder, StiringIndexer, RFormula, RegressionEvaluator, 하이퍼파라미터 튜닝, K-Fold 교차검증, 파이프라인 최적화
+
+- 230912
+    - [Django](./2309/230912/TIL0912_Django복습.md) - ToDoList
