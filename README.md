@@ -187,3 +187,6 @@
 
 - 230912
     - [Django](./2309/230912/TIL0912_Django복습.md) - ToDoList
+
+- 230913
+    - [Django](./2309/230913/TIL0913_Django복습.md) - 맛집공유사이트

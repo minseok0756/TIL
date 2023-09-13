@@ -113,7 +113,8 @@ model 확인하기 <br>
 `python manage.py dbshell` - 데이터베이스에 접근한다. <br>
 `.tables` - 데이터베이스에 존재하는 테이블 확인한다. 장고가 기본적으로 제공하는 모델들에 의해 생성된 테이블도 있고, 직접 만든 테이블도 있다. 테이블명은 <애플리케이션이름>_<모델이름>과 같은 규칙으로 만들어진다. <br>
 `PRAGMA table_info(테이블명);` - 테이블 정보를 확인한다. '단순Number | 컬럼이름 | Type | notnull 여부 | pk 여부'를 확인할 수 있다. 1은 true, 0은 false를 의미한다. id라는 컬럼을 장고가 자동으로 생성한다. <br>
-`select * from 테이블명;` - 데이터를 확인한다.
+`select * from 테이블명;` - 데이터를 확인한다. <br>
+`.quite` - dbshell에서 빠져나온다
 
 <br>
 
